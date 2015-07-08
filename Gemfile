@@ -32,6 +32,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bootstrap-sass'
 gem 'faker'
+gem 'devise'
 
 group :production do
   gem 'pg'
