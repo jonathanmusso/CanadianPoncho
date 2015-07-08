@@ -1,6 +1,7 @@
 <h1>Vehicles#show</h1>
 <p>Find me in app/views/vehicles/show.html.erb</p>
 
+<%= link_to "Edit", edit_vehicle_path(@vehicle), class: 'btn btn-success' %>
 <ul>
   <li><%= @vehicle.make %></li>
   <li><%= @vehicle.model %></li>
