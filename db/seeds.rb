@@ -1,7 +1,20 @@
 require 'faker'
 
-500.times do
+5000.times do
+    user = User.new(
+       name: Faker::Name.name,
+       username: Faker::Name.name,
+       email: Faker::Internet.email,
+       password: Faker::Lorem.characters(10) 
+    )
+    user.skip_confirmation!
+    user.save!
+end
+users = User.all
+
+15000.times do
   Vehicle.create!(
+    user: users.sample,
     make: Faker::Company.name,
     model: Faker::Company.suffix,
     year: Faker::Number.number(4),
@@ -17,5 +30,13 @@ require 'faker'
 end
 vehicles = Vehicle.all
 
+user = User.first
+user.skip_reconfirmation!
+user.update_attributes!(
+    email: 'jonathanmusso@gmail.com',
+    password: 'helloworld'
+)
+
 puts "Seed finished."
+puts "#{User.count} users created."
 puts "#{Vehicle.count} vehicles created."

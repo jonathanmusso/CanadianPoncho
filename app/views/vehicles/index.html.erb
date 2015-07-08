@@ -3,4 +3,8 @@
 
 <% @vehicles.each do |vehicle| %>
   <p><%= link_to vehicle.model, vehicle %></p>
+
+  <small>
+   submitted <%= time_ago_in_words(vehicle.created_at) %> ago by <%= vehicle.user.name %>
+  </small>
 <% end %>

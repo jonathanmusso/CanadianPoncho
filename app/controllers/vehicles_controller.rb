@@ -13,6 +13,8 @@ class VehiclesController < ApplicationController
 
   def create
     @vehicle = Vehicle.new(params.require(:vehicle).permit(:make, :model, :year, :production_date, :engine, :transmission, :trim, :color, :options, :location, :description))
+    @vehicle.user = current_user
+    
     if @vehicle.save
       flash[:notice] = "The Vehicle was added to the Registry."
       redirect_to @vehicle
