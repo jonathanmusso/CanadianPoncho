@@ -1,6 +1,7 @@
 class VehiclesController < ApplicationController
   def index
     @vehicles = Vehicle.all
+    authorize @vehicles
   end
 
   def show
@@ -9,12 +10,14 @@ class VehiclesController < ApplicationController
 
   def new
     @vehicle = Vehicle.new
+    authorize @vehicle
   end
 
   def create
     @vehicle = Vehicle.new(params.require(:vehicle).permit(:make, :model, :year, :production_date, :engine, :transmission, :trim, :color, :options, :location, :description))
     @vehicle.user = current_user
-    
+    authorize @vehicle
+
     if @vehicle.save
       flash[:notice] = "The Vehicle was added to the Registry."
       redirect_to @vehicle
@@ -26,10 +29,13 @@ class VehiclesController < ApplicationController
 
   def edit
     @vehicle = Vehicle.find(params[:id])
+    authorize @vehicle
   end
 
   def update
     @vehicle = Vehicle.find(params[:id])
+    authorize @vehicle
+    
     if @vehicle.update_attributes(params.require(:vehicle).permit(:make, :model, :year, :production_date, :engine, :transmission, :trim, :color, :options, :location, :description))
       flash[:notice] = "The Vehicle entry was updated."
       redirect_to @vehicle

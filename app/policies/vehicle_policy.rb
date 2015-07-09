@@ -1,0 +1,2 @@
+class VehiclePolicy < ApplicationPolicy
+end

@@ -1,6 +1,7 @@
 require 'faker'
 
-5000.times do
+# Create Users
+5.times do
     user = User.new(
        name: Faker::Name.name,
        username: Faker::Name.name,
@@ -12,7 +13,8 @@ require 'faker'
 end
 users = User.all
 
-15000.times do
+# Create Vehicles
+25.times do
   Vehicle.create!(
     user: users.sample,
     make: Faker::Company.name,
@@ -30,12 +32,33 @@ users = User.all
 end
 vehicles = Vehicle.all
 
+# Create a Regular User
 user = User.first
 user.skip_reconfirmation!
 user.update_attributes!(
     email: 'jonathanmusso@gmail.com',
     password: 'helloworld'
 )
+
+# Create an Admin User
+admin = User.new(
+    name: 'Admin User',
+    email: 'admin@example.com',
+    password: 'helloworld',
+    role: 'admin'
+)
+admin.skip_confirmation!
+admin.save!
+
+# Create a Moderator
+moderator = User.new(
+    name: 'Moderator User',
+    email: 'moderator@example.com',
+    password: 'helloworld',
+    role: 'moderator'
+)
+moderator.skip_confirmation!
+moderator.save!
 
 puts "Seed finished."
 puts "#{User.count} users created."
