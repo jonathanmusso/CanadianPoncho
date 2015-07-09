@@ -32,4 +32,4 @@
   <dd><%= @vehicle.description %></dd>
 </dl>
 
-<h3><%= current_user.name %>'s <%= @vehicle.year %> <%= @vehicle.make %>!</h3>
+<h3><%= @vehicle.user.name %>'s <%= @vehicle.year %> <%= @vehicle.make %>!</h3>
