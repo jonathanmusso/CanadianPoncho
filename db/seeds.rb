@@ -36,7 +36,7 @@ vehicles = Vehicle.all
 user = User.first
 user.skip_reconfirmation!
 user.update_attributes!(
-    email: 'jonathanmusso@gmail.com',
+    email: 'member@example.com',
     password: 'helloworld'
 )
 
