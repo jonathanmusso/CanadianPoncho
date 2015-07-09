@@ -14,7 +14,7 @@ class VehiclesController < ApplicationController
   end
 
   def create
-    @vehicle = Vehicle.new(params.require(:vehicle).permit(:make, :model, :year, :production_date, :engine, :transmission, :trim, :color, :options, :location, :description))
+    @vehicle = Vehicle.new(vehicle_params)
     @vehicle.user = current_user
     authorize @vehicle
 
@@ -36,12 +36,18 @@ class VehiclesController < ApplicationController
     @vehicle = Vehicle.find(params[:id])
     authorize @vehicle
     
-    if @vehicle.update_attributes(params.require(:vehicle).permit(:make, :model, :year, :production_date, :engine, :transmission, :trim, :color, :options, :location, :description))
+    if @vehicle.update_attributes(vehicle_params)
       flash[:notice] = "The Vehicle entry was updated."
       redirect_to @vehicle
     else
       flash[:error] = "There was an error updating the Vehicle. Please try again."
       render :edit
     end
+  end
+
+  private
+
+  def vehicle_params
+    params.require(:vehicle).permit(:make, :model, :year, :production_date, :engine, :transmission, :trim, :color, :options, :location, :description)
   end
 end
