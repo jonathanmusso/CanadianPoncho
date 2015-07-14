@@ -1,2 +1,8 @@
-SENDGRID_PASSWORD:
-SENDGRID_USERNAME:
+SENDGRID_PASSWORD: your credential here
+SENDGRID_USERNAME: your credential here
+AWS_ACCESS_KEY_ID: your credential here
+AWS_SECRET_ACCESS_KEY: your credential here
+development:
+  AWS_BUCKET: your credential here
+production:
+  AWS_BUCKET: your credential here

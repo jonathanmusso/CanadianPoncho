@@ -35,6 +35,9 @@ gem 'faker'
 gem 'devise'
 gem 'figaro', '1.0'
 gem 'pundit'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
 
 group :production do
   gem 'pg'

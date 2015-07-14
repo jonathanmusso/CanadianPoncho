@@ -33,6 +33,7 @@ class VehiclesController < ApplicationController
   end
 
   def update
+    raise
     @vehicle = Vehicle.find(params[:id])
     authorize @vehicle
     
@@ -48,6 +49,6 @@ class VehiclesController < ApplicationController
   private
 
   def vehicle_params
-    params.require(:vehicle).permit(:make, :model, :year, :production_date, :engine, :transmission, :trim, :color, :options, :location, :description)
+    params.require(:vehicle).permit(:make, :model, :year, :production_date, :engine, :transmission, :trim, :color, :options, :location, :description, :front)
   end
 end

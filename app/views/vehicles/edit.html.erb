@@ -57,6 +57,12 @@
     <%= f.text_area :description, class: 'form-control', placeholder: "Enter Vehicle Description" %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :front %>
+    <%= f.file_field :front %>
+    <%= f.hidden_field :front_cache %>
+  </div>
+
   <% if current_user.role == 'admin' || current_user.role == 'moderator' %>
     <div class="form-group">
       <%= f.label :approved, class: 'checkbox' do %>
