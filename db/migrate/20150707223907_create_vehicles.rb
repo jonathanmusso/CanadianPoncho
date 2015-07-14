@@ -12,7 +12,8 @@ class CreateVehicles < ActiveRecord::Migration
       t.string :options
       t.string :location
       t.text :description
-
+      t.boolean :approved, default: false
+      
       t.timestamps null: false
     end
   end

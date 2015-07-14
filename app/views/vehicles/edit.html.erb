@@ -57,6 +57,14 @@
     <%= f.text_area :description, class: 'form-control', placeholder: "Enter Vehicle Description" %>
   </div>
 
+  <% if current_user.role == 'admin' || current_user.role == 'moderator' %>
+    <div class="form-group">
+      <%= f.label :approved, class: 'checkbox' do %>
+        <%= f.check_box :approved %> Approve this Vehicle for the Registry?
+      <% end %>
+    </div>
+  <% end %>
+
   <div class="form-group">
     <%= f.submit "Save", class: 'btn btn-success' %>
   </div>

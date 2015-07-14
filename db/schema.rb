@@ -50,8 +50,9 @@ ActiveRecord::Schema.define(version: 20150709131143) do
     t.string   "options"
     t.string   "location"
     t.text     "description"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.boolean  "approved",        default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.integer  "user_id"
   end
 
