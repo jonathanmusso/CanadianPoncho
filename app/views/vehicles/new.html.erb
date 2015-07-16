@@ -56,6 +56,15 @@
     <%= f.label :description %>
     <%= f.text_area :description, class: 'form-control', placeholder: "Enter Vehicle Description" %>
   </div>
+  
+  <%= f.fields_for :vehicle_images do |p| %>
+  
+    <div class="form-group">
+      <%= p.label :images %>
+      <%= p.file_field :image, :multiple => true, name: "vehicle_images[image][]" %>
+      <%= p.hidden_field :image_cache %>
+    </div>
+  <% end %>
 
   <div class="form-group">
     <%= f.submit "Save", class: 'btn btn-success' %>

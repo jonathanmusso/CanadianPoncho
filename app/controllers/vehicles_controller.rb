@@ -20,6 +20,9 @@ class VehiclesController < ApplicationController
     authorize @vehicle
 
     if @vehicle.save
+      params[:vehicle_images][:image].each do |i|
+          @vehicle.vehicle_images.create!(:image => i)
+       end
       flash[:notice] = "The Vehicle was added to the Registry."
       redirect_to @vehicle
     else
@@ -31,12 +34,12 @@ class VehiclesController < ApplicationController
   def edit
     @vehicle = Vehicle.find(params[:id])
     authorize @vehicle
+    @first_image, *@images = @vehicle.vehicle_images
   end
 
   def update
     @vehicle = Vehicle.find(params[:id])
     authorize @vehicle
-    VehicleImage.create
     if @vehicle.update_attributes(vehicle_params)
       params[:vehicle_images][:image].each do |i|
           @vehicle.vehicle_images.create!(:image => i)

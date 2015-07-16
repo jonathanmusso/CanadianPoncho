@@ -30,7 +30,9 @@
   <dd><%= @vehicle.location %></dd>
   <dt><strong>Make:</strong></dt>
   <dd><%= @vehicle.description %></dd>
-  <%= image_tag @first_image.image_url %>
+  <% if @first_image %>
+    <%= image_tag @first_image.image_url %>
+  <% end %>
   <hr />
   <% @images.each do |img| %>
     <%= image_tag img.image_url %>

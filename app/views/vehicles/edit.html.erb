@@ -56,6 +56,16 @@
     <%= f.label :description %>
     <%= f.text_area :description, class: 'form-control', placeholder: "Enter Vehicle Description" %>
   </div>
+  
+  <% if @first_image %>
+    <%= image_tag @first_image.image_url %>
+    <%= link_to "Remove Image", vehicle_image_path(@first_image), method: :delete %>
+  <% end %>
+  <hr />
+  <% @images.each do |img| %>
+    <%= image_tag img.image_url %>
+    <%= link_to "Remove Image", vehicle_image_path(img), method: :delete %>
+  <% end %>
 
   <%= f.fields_for :vehicle_images do |p| %>
   
