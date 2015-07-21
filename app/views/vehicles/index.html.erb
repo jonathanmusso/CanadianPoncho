@@ -28,25 +28,27 @@
 
   <!-- Body Column -->
   <div class="col-sm-9">
-    <h3 class="item-category">Results</h3>
-    <h1>Vehicles#index</h1>
-    <p>Find me in app/views/vehicles/index.html.erb</p>
+    <div class="row">
+      <h3 class="item-category">Results</h3>
+      <h1>Vehicles#index</h1>
+      <p>Find me in app/views/vehicles/index.html.erb</p>
 
-    <% if policy(Vehicle.new).create? %>
-      <%= link_to "Add Vehicle to Registry", new_vehicle_path, class: 'btn btn-success' %>
-    <% end %>
-
-    <hr />
-    <% @vehicles.each do |vehicle| %>
-    <div class="col-sm-6 bottom">
-      <p><%= link_to vehicle.model, vehicle %></p>
-
-      <% if @first_image %>
-      <%= image_tag @first_image.image_url %>
+      <% if policy(Vehicle.new).create? %>
+        <%= link_to "Add Vehicle to Registry", new_vehicle_path, class: 'btn btn-success' %>
       <% end %>
 
-      <%= link_to "View Details", vehicle, class: "item-more" %>
+      <hr />
+      <% @vehicles.each do |vehicle| %>
+        <div class="col-sm-6 bottom">
+          <h3 class="item-title"><%= link_to vehicle.model, vehicle %></h3>
+
+          <% if @first_image %>
+          <%= image_tag @first_image.image_url %>
+          <% end %>
+
+          <%= link_to "View Details", vehicle, class: "item-more" %>
+        </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
 </div>
