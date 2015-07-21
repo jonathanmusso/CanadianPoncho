@@ -1,6 +1,33 @@
 <div class="row">
-<!-- Specification Column -->
-<div class="col-sm-4">
+
+
+  <!-- Body Column -->
+  <div class="col-sm-9">
+    <h3 class="item-title"><%= @vehicle.user.name %>'s <%= @vehicle.year %> <%= @vehicle.make %></h3>
+
+    <% if policy(@vehicle).edit? %>
+      <%= link_to "Edit", edit_vehicle_path(@vehicle), class: 'btn btn-success' %>
+    <% end %>
+    <hr />
+
+    <% if @first_image %>
+      <%= image_tag @first_image.image_url %>
+    <% end %>
+    <hr />
+    
+    <div class="row">
+      <% @images.each do |img| %>
+        <div class="col-sm-3 top">
+          <%= image_tag img.image_url, class: "img-responsive" %>
+        </div>
+      <% end %>
+    </div>
+    <hr />
+
+    <p><%= @vehicle.description %></p>
+  </div>
+  <!-- Specification Column -->
+<div class="col-sm-3">
   <h3 class="item-title">Specifications</h3>
   <dl class="item">
     <dt><strong>Make:</strong></dt>
@@ -25,30 +52,4 @@
     <dd><%= @vehicle.location %></dd>
   </dl>
 </div>
-
-  <!-- Body Column -->
-  <div class="col-sm-8">
-    <h3 class="item-title"><%= @vehicle.user.name %>'s <%= @vehicle.year %> <%= @vehicle.make %></h3>
-
-    <% if policy(@vehicle).edit? %>
-      <%= link_to "Edit", edit_vehicle_path(@vehicle), class: 'btn btn-success' %>
-    <% end %>
-    <hr />
-
-    <% if @first_image %>
-      <%= image_tag @first_image.image_url %>
-    <% end %>
-    <hr />
-    
-    <div class="row">
-      <% @images.each do |img| %>
-        <div class="col-sm-3 top">
-          <%= image_tag img.image_url, class: "img-responsive" %>
-        </div>
-      <% end %>
-    </div>
-    <hr />
-
-    <p><%= @vehicle.description %></p>
-  </div>
 </div>
