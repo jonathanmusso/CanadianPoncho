@@ -57,19 +57,25 @@
     <%= f.text_area :description, class: 'form-control', placeholder: "Enter Vehicle Description" %>
   </div>
   
+  <h1>Primary Gallery Image</h1>
   <% if @first_image %>
-    <%= image_tag @first_image.image_url %>
-    <%= link_to "Remove Image", vehicle_image_path(@first_image), method: :delete %>
+    <%= image_tag @first_image.image_url, class: "img-responsive" %>
+    <p><%= link_to "Remove Image", vehicle_image_path(@first_image), method: :delete %></p>
   <% end %>
   <hr />
+
+  <div class="row">
   <% @images.each do |img| %>
-    <%= image_tag img.image_url %>
-    <%= link_to "Remove Image", vehicle_image_path(img), method: :delete %>
+    <div class="col-sm-3 top">
+      <%= image_tag img.image_url, class: "img-responsive" %>
+      <%= link_to "Remove Image", vehicle_image_path(img), method: :delete %>
+    </div>
   <% end %>
+  </div>
 
   <%= f.fields_for :vehicle_images do |p| %>
   
-    <div class="form-group">
+    <div class="form-group top">
       <%= p.label :images %>
       <%= p.file_field :image, :multiple => true, name: "vehicle_images[image][]" %>
       <%= p.hidden_field :image_cache %>

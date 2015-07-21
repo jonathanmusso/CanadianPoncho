@@ -1,15 +1,52 @@
-<h1>Vehicles#index</h1>
-<p>Find me in app/views/vehicles/index.html.erb</p>
+<div class="row">
 
-<% if policy(Vehicle.new).create? %>
-  <%= link_to "Add Vehicle to Registry", new_vehicle_path, class: 'btn btn-success' %>
-<% end %>
+  <!-- Side Column -->
+  <div class="col-sm-3">
+    <h3 class="item-category">Select make: </h3>
+    <ul class="side-menu">
+      <li><a href="#">Pontiac</a></li>
+      <li><a href="#">Beaumont</a></li>
+      <li><a href="#">Acadian</a></li>
+    </ul>
+    <h3 class="item-category">Sort by: </h3>
+    <ul class="side-menu">
+      <li><a href="#">Year</a></li>
+      <li><a href="#">Engine</a></li>
+      <li><a href="#">Vin</a></li>
+    </ul>
+    <h3 class="item-category">Vehicle Model</h3>
+    <ul class="side-menu">
+      <li><a href="#">5 Window Coupe</a></li>
+      <li><a href="#">Grande Parisienne</a></li>
+      <li><a href="#">Parisienne</a></li>
+      <li><a href="#">Parisienne Custom Sport</a></li>
+      <li><a href="#">GTO</a></li>
+      <li><a href="#">Tempest</a></li>
+      <li><a href="#">Le Mans</a></li>
+    </ul>
+  </div>
 
-<hr />
-<% @vehicles.each do |vehicle| %>
-  <p><%= link_to vehicle.model, vehicle %></p>
+  <!-- Body Column -->
+  <div class="col-sm-9">
+    <h3 class="item-category">Results</h3>
+    <h1>Vehicles#index</h1>
+    <p>Find me in app/views/vehicles/index.html.erb</p>
 
-  <small>
-   submitted <%= time_ago_in_words(vehicle.created_at) %> ago by <%= vehicle.user.name %>
-  </small>
-<% end %>
+    <% if policy(Vehicle.new).create? %>
+      <%= link_to "Add Vehicle to Registry", new_vehicle_path, class: 'btn btn-success' %>
+    <% end %>
+
+    <hr />
+    <% @vehicles.each do |vehicle| %>
+    <div class="col-sm-6 bottom">
+      <p><%= link_to vehicle.model, vehicle %></p>
+
+      <% if @first_image %>
+      <%= image_tag @first_image.image_url %>
+      <% end %>
+
+      <%= link_to "View Details", vehicle.model, class: "item-more" %>
+    </div>
+    <% end %>
+  </div>
+</div>
