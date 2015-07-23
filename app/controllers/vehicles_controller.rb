@@ -6,7 +6,7 @@ class VehiclesController < ApplicationController
 
   def show
     @vehicle = Vehicle.find(params[:id])
-    @first_image, *@images = @vehicle.vehicle_images
+    @primary_image, @images = @vehicle.primary_and_vehicle_images
   end
 
   def new
@@ -20,9 +20,8 @@ class VehiclesController < ApplicationController
     authorize @vehicle
 
     if @vehicle.save
-      params[:vehicle_images][:image].each do |i|
-          @vehicle.vehicle_images.create!(:image => i)
-       end
+      add_vehicle_images
+
       flash[:notice] = "The Vehicle was added to the Registry."
       redirect_to @vehicle
     else
@@ -34,16 +33,16 @@ class VehiclesController < ApplicationController
   def edit
     @vehicle = Vehicle.find(params[:id])
     authorize @vehicle
-    @first_image, *@images = @vehicle.vehicle_images
+    @primary_image, @images = @vehicle.primary_and_vehicle_images
   end
 
   def update
     @vehicle = Vehicle.find(params[:id])
     authorize @vehicle
+
     if @vehicle.update_attributes(vehicle_params)
-      params[:vehicle_images][:image].each do |i|
-          @vehicle.vehicle_images.create!(:image => i)
-       end
+      add_vehicle_images if params[:vehicle][:vehicle_images][:image]
+
       flash[:notice] = "The Vehicle entry was updated."
       redirect_to @vehicle
     else
@@ -57,4 +56,11 @@ class VehiclesController < ApplicationController
   def vehicle_params
     params.require(:vehicle).permit(:make, :model, :year, :production_date, :engine, :transmission, :trim, :color, :options, :location, :description, vehicle_images_attributes: [:image])
   end
+
+  def add_vehicle_images
+    params[:vehicle][:vehicle_images][:image].each do |i|
+        @vehicle.vehicle_images.create!(:image => i)
+     end
+  end
+
 end

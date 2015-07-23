@@ -58,9 +58,9 @@
   </div>
   
   <h1>Primary Gallery Image</h1>
-  <% if @first_image %>
-    <%= image_tag @first_image.image_url, class: "img-responsive" %>
-    <p><%= link_to "Remove Image", vehicle_image_path(@first_image), method: :delete %></p>
+  <% if @primary_image %>
+    <%= image_tag @primary_image.image_url, class: "img-responsive" %>
+    <p><%= link_to "Remove Image", vehicle_image_path(@primary_image), method: :delete %></p>
   <% end %>
   <hr />
 
@@ -69,6 +69,7 @@
     <div class="col-sm-3 top">
       <%= image_tag img.image_url, class: "img-responsive" %>
       <%= link_to "Remove Image", vehicle_image_path(img), method: :delete %>
+      <%= link_to "Make Primary", vehicle_image_path(img), method: :patch %>
     </div>
   <% end %>
   </div>
@@ -77,7 +78,7 @@
   
     <div class="form-group top">
       <%= p.label :images %>
-      <%= p.file_field :image, :multiple => true, name: "vehicle_images[image][]" %>
+      <%= p.file_field :image, :multiple => true, name: "vehicle[vehicle_images][image][]" %>
       <%= p.hidden_field :image_cache %>
     </div>
   <% end %>

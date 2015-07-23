@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150714120758) do
+ActiveRecord::Schema.define(version: 20150722211327) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -42,8 +42,9 @@ ActiveRecord::Schema.define(version: 20150714120758) do
     t.integer  "vehicle_id"
     t.string   "location"
     t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "primary",    default: false
   end
 
   add_index "vehicle_images", ["vehicle_id"], name: "index_vehicle_images_on_vehicle_id"

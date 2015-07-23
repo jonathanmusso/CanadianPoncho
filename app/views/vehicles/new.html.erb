@@ -61,7 +61,7 @@
   
     <div class="form-group">
       <%= p.label :images %>
-      <%= p.file_field :image, :multiple => true, name: "vehicle_images[image][]" %>
+      <%= p.file_field :image, :multiple => true, name: "vehicle[vehicle_images][image][]" %>
       <%= p.hidden_field :image_cache %>
     </div>
   <% end %>
