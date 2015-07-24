@@ -1,0 +1,7 @@
+<% @registry_requests.each do |request| %>
+  <div><%= request.vehicle.make %></div>
+  <div><%= request.vehicle.model %></div>
+  <div><%= request.vehicle.description %></div>
+  <%= link_to "Show", request %>
+  <hr />
+<% end %>

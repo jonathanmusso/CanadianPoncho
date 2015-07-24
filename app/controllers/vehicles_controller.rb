@@ -20,7 +20,8 @@ class VehiclesController < ApplicationController
     authorize @vehicle
 
     if @vehicle.save
-      add_vehicle_images
+      add_vehicle_images if params[:vehicle][:vehicle_images][:image]
+      create_registry_request(@vehicle)
 
       flash[:notice] = "The Vehicle was added to the Registry."
       redirect_to @vehicle
@@ -61,6 +62,10 @@ class VehiclesController < ApplicationController
     params[:vehicle][:vehicle_images][:image].each do |i|
         @vehicle.vehicle_images.create!(:image => i)
      end
+  end
+
+  def create_registry_request(vehicle)
+    RegistryRequest.create(vehicle: vehicle)
   end
 
 end

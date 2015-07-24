@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150722211327) do
+ActiveRecord::Schema.define(version: 20150723130402) do
+
+  create_table "registry_requests", force: :cascade do |t|
+    t.datetime "approved_at"
+    t.datetime "denied_at"
+    t.text     "notes"
+    t.integer  "vehicle_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "registry_requests", ["vehicle_id"], name: "index_registry_requests_on_vehicle_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
