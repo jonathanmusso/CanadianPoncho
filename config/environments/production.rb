@@ -79,4 +79,6 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'canadianponcho.herokuapp.com' }
   config.action_mailer.delivery_method = :stmp
   config.action_mailer.perform_deliveries = true
+
+  config.serve_static_assets = true
 end
