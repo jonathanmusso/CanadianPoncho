@@ -1,0 +1,21 @@
+<!-- Columns -->
+<div class="row">
+  <!-- Dashboard -->
+  <%= render 'member_panel' %>
+
+  <!-- Body -->
+  <div class="col-sm-9">
+    <h3 class="body-title">Welcome to your Account, <%= @user.name %>.</h3>
+    <p>Here you have access to do certain things, such as <a href="#">submit</a> your vehicle to the Canadian Poncho Registry. Please view the menu on the left for your available options.</p>
+
+    <h3 class="item-title">Vehicles Pending Registry Approval</h3>
+    <ul>
+      <li><p>1966 Grande Parisienne</p></li>
+    </ul>
+
+    <h3 class="item-title">Current Registry Vehicles</h3>
+    <ul>
+      <li><p><a href="vehicle_show.html">1966 GTO</a> | <a href="vehicle_edit.html">Edit Vehicle</a></p></li>
+    </ul>
+  </div>
+</div>

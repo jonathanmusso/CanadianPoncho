@@ -1,5 +1,11 @@
-<div><%= @registry_request.vehicle.make %></div>
-<div><%= @registry_request.vehicle.model %></div>
-<div><%= @registry_request.vehicle.description %></div>
-<%= link_to "Approve", approve_registry_request_path, method: :patch %>
-<%= link_to "Deny", deny_registry_request_path, method: :patch %>
+<%= render partial: 'users/admin_panel' %>
+
+<div class="col-sm-9">
+  <h3 class="body-title"><%= @registry_request.vehicle.user.name %>'s <%= @registry_request.vehicle.make %> </h3>
+  <div><%= @registry_request.vehicle.make %></div>
+  <div><%= @registry_request.vehicle.model %></div>
+  <div><%= @registry_request.vehicle.description %></div>
+  <%= link_to "Approve", approve_registry_request_path, method: :patch %>
+  <%= link_to "Deny", deny_registry_request_path, method: :patch %>
+
+</div>
