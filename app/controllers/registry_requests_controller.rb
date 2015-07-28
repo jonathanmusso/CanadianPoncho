@@ -1,6 +1,6 @@
 class RegistryRequestsController < ApplicationController
   def index
-    @registry_requests = RegistryRequest.all
+    @registry_requests = RegistryRequest.pending
   end
 
   def show
@@ -11,7 +11,6 @@ class RegistryRequestsController < ApplicationController
     @approval = RegistryRequest.find(params[:id])
     
     if @approval.update_attribute(:approved_at, Time.now)
-
       flash[:notice] = "The vehicle was approved for the Registry."
       redirect_to request.referer
     else

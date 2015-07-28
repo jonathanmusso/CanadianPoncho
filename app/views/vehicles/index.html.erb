@@ -44,11 +44,11 @@
         <div class="col-sm-6 bottom">
           <h3 class="item-title"><%= link_to vehicle.model, vehicle %></h3>
 
-          <% if @first_image %>
-          <%= image_tag @first_image.image_url %>
-          <% end %>
+            <div class="col-sm-3 top">
+              <%= image_tag(vehicle.primary_image.image_url, class: "img-responsive") if vehicle.primary_image %>
+            </div>
 
-          <%= link_to "View Details", vehicle, class: "item-more" %>
+          <hr /><%= link_to "View Details", vehicle, class: "item-more" %>
         </div>
       <% end %>
       </div>

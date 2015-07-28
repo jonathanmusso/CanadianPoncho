@@ -7,11 +7,16 @@ class Vehicle < ActiveRecord::Base
   #accepts_nested_attributes_for :vehicle_images
 
   default_scope { order('created_at DESC') }
+  scope :approved, -> { joins(:registry_requests).where("registry_requests.approved_at IS NOT NULL") }
 
   def primary_and_vehicle_images
-    primary = vehicle_images.where(primary: true).take
+    primary = primary_image
     rest = vehicle_images.where(primary: false)
     [primary, rest]
+  end
+
+  def primary_image
+    vehicle_images.where(primary: true).take
   end
 
 end
