@@ -30,23 +30,19 @@
   <div class="col-sm-9">
     
       <h3 class="item-category">Results</h3>
-      <h1>Vehicles#index</h1>
-      <p>Find me in app/views/vehicles/index.html.erb</p>
 
       <% if policy(Vehicle.new).create? %>
         <%= link_to "Add Vehicle to Registry", new_vehicle_path, class: 'btn btn-success' %>
       <% end %>
-
-      <hr />
 
       <div class="row">
       <% @vehicles.each do |vehicle| %>
         <div class="col-sm-6 bottom">
           <h3 class="item-title"><%= link_to vehicle.model, vehicle %></h3>
 
-            <div class="col-sm-3 top">
+            
               <%= image_tag(vehicle.primary_image.image_url, class: "img-responsive") if vehicle.primary_image %>
-            </div>
+            
 
           <hr /><%= link_to "View Details", vehicle, class: "item-more" %>
         </div>
