@@ -2,11 +2,18 @@
 
 <div class="col-sm-9">
   <h3 class="body-title">Requests Pending Approval</h3>
-  <% @registry_requests.each do |request| %>
-    <div><%= request.vehicle.make %></div>
-    <div><%= request.vehicle.model %></div>
-    <div><%= request.vehicle.description %></div>
-    <%= link_to "Show", request %>
-    <hr />
-  <% end %>
+  <div class="row">
+    <% @registry_requests.each do |request| %>
+      <div class="col-sm-4">
+        <div class="admin-widget">
+          <h2><%= request.vehicle.make %></h2>
+          <ul>
+            <li><%= request.vehicle.model %></li>
+            <li><%= request.vehicle.user.name %></li>
+          </ul>
+        </div>
+        <%= link_to "Show", request, class: "admin-widget-link" %>
+      </div>
+    <% end %>
+  </div>
 </div>
