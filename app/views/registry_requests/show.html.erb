@@ -44,7 +44,16 @@
     </div>
   </div>
   <hr/>
-  <%= link_to "Approve", approve_registry_request_path, method: :patch %>
-  <%= link_to "Deny", deny_registry_request_path, method: :patch %>
+  
+  <%= form_for @registry_request do |f| %>
+
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+
+    <%= f.submit "Approve" %>
+    <%= f.submit "Deny" %> 
+
+  <% end %>
+
 
 </div>
