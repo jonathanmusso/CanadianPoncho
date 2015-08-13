@@ -8,6 +8,7 @@ class Vehicle < ActiveRecord::Base
 
   default_scope { order('created_at DESC') }
   scope :approved, -> { joins(:registry_requests).where("registry_requests.approved_at IS NOT NULL") }
+  scope :pending, -> { joins(:registry_requests).where("registry_requests.approved_at IS NULL AND registry_requests.denied_at IS NULL") }
 
   def primary_and_vehicle_images
     primary = primary_image

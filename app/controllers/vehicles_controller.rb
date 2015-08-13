@@ -52,6 +52,23 @@ class VehiclesController < ApplicationController
     end
   end
 
+  def resubmit
+    #update and new request
+    @vehicle = Vehicle.find(params[:id])
+    authorize @vehicle
+
+    if @vehicle.update_attributes(vehicle_params)
+      add_vehicle_images if params[:vehicle][:vehicle_images][:image]
+      create_registry_request(@vehicle)
+
+      flash[:notice] = "The Vehicle entry was updated."
+      redirect_to @vehicle
+    else
+      flash[:error] = "There was an error updating the Vehicle. Please try again."
+      render :edit
+    end
+  end
+
   private
 
   def vehicle_params

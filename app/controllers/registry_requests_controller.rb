@@ -18,7 +18,6 @@ class RegistryRequestsController < ApplicationController
       flash_message = "The vehicle was denied."
     end
 
-    # @request.notes = params[:registry_request][:notes]
     @request.notes = params.require(:registry_request).permit(:notes)
     
     if @request.save
