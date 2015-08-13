@@ -21,7 +21,7 @@
     <ul>
       
       <% @vehicles_denied.each do |vehicle| %>
-        <li><p><%= vehicle.make %></p></li>
+        <li><p><%= link_to vehicle.make, vehicle %></p></li>
       <% end %>
 
     </ul>
@@ -30,7 +30,7 @@
     <ul>
     
       <% @vehicles_approved.each do |vehicle| %>
-        <li><p><%= vehicle.make %></p></li>
+        <li><p><%= link_to vehicle.make, vehicle %></p></li>
       <% end %>
       
     </ul>
