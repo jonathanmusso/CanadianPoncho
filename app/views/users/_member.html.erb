@@ -10,8 +10,8 @@
 
     <h3 class="item-title">Vehicles Pending Registry Approval</h3>
     <ul>
-      
-      <% @vehicles.each do |vehicle| %>
+
+      <% @vehicles_pending.each do |vehicle| %>
         <li><p><%= vehicle.make %></p></li>
       <% end %>
 
@@ -20,7 +20,7 @@
     <h3 class="item-title">Vehicles Requiring Resubmission</h3>
     <ul>
       
-      <% @vehicles.each do |vehicle| %>
+      <% @vehicles_denied.each do |vehicle| %>
         <li><p><%= vehicle.make %></p></li>
       <% end %>
 
@@ -29,7 +29,7 @@
     <h3 class="item-title">Current Registry Vehicles</h3>
     <ul>
     
-      <% @vehicles.each do |vehicle| %>
+      <% @vehicles_approved.each do |vehicle| %>
         <li><p><%= vehicle.make %></p></li>
       <% end %>
       

@@ -3,7 +3,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @vehicles = @user.vehicles
+    @vehicles_approved = @user.vehicles.approved
+    @vehicles_pending = @user.vehicles.pending
+    @vehicles_denied = @user.vehicles.denied
   end
 
   def update
