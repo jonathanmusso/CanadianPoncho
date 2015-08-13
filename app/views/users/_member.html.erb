@@ -22,6 +22,10 @@
       
       <% @vehicles_denied.each do |vehicle| %>
         <li><p><%= link_to vehicle.make, vehicle %></p></li>
+        <li><p><%= vehicle.vehicle_request_notes %></p></li>
+
+
+
       <% end %>
 
     </ul>

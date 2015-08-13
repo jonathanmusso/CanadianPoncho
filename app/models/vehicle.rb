@@ -21,4 +21,13 @@ class Vehicle < ActiveRecord::Base
     vehicle_images.where(primary: true).take
   end
 
+  def vehicle_request_notes
+    # self.registry_requests.each do |rr|
+    #   rr.notes
+    # end
+
+    # registry_requests.pluck(:notes)
+
+    registry_requests.pluck(:notes).join(" ")
+  end
 end
