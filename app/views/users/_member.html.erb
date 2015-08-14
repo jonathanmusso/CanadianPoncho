@@ -23,7 +23,7 @@
       <% @vehicles_denied.each do |vehicle| %>
         <li><p><%= link_to vehicle.make, vehicle %></p></li>
         <li><p><%= vehicle.vehicle_request_notes %></p></li>
-
+        <li><p><%= link_to "Resubmit", re_edit_vehicle_path(vehicle) %></p></li>
 
 
       <% end %>
@@ -35,6 +35,7 @@
     
       <% @vehicles_approved.each do |vehicle| %>
         <li><p><%= link_to vehicle.make, vehicle %></p></li>
+        <li><p><%= vehicle.vehicle_request_notes %></p></li>
       <% end %>
       
     </ul>
