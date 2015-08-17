@@ -23,8 +23,8 @@ class VehiclesController < ApplicationController
       add_vehicle_images if params[:vehicle][:vehicle_images][:image]
       create_registry_request(@vehicle)
 
-      flash[:notice] = "The Vehicle was added to the Registry."
-      redirect_to @vehicle
+      flash[:notice] = "The Vehicle was sent to the Administrator for Appraval. You will be notified in your Dashboard if your vehicle was approved or denied."
+      redirect_to current_user
     else
       flash[:error] = "There was an error saving the Vehicle to the Registry. Please try again."
       render :new
