@@ -30,11 +30,6 @@
   <div class="col-sm-9">
     
       <h3 class="item-category">Results</h3>
-
-      <% if policy(Vehicle.new).create? %>
-        <%= link_to "Add Vehicle to Registry", new_vehicle_path, class: 'btn btn-success' %>
-      <% end %>
-
       <div class="row">
       <% @vehicles.each do |vehicle| %>
         <div class="col-sm-6 bottom">
