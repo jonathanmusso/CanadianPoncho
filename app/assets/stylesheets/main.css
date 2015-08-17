@@ -191,6 +191,50 @@ a.admin-widget-link:hover {
   display: inline-block;
 }
 
+/* User Panel */
+.user-widget {
+  background: #ECECEC;
+  padding: 1.5em;
+  border-radius: .25em;
+}
+
+.resubmit-widget {
+  background: red;
+}
+.resubmit-widget p {
+  color: #fff;
+}
+.resubmit-widget a {
+  color: #6B0C22;
+}
+.approved-widget {
+  background: #deff40;
+}
+.approved-widget p {
+  color: #222;
+}
+.approved-widget a {
+  color: red;
+}
+/*h3.item-declined {
+  font-weight: 200;
+  text-transform: uppercase;
+  border: .1em solid #4C1B1B;
+  background: #4C1B1B;
+  padding: .45em;
+  color: #fff;
+  margin-bottom: 1em;
+}
+h3.item-approved {
+  font-weight: 200;
+  text-transform: uppercase;
+  border: .1em solid #9AC836;
+  background: #9AC836;
+  padding: .45em;
+  color: #fff;
+  margin-bottom: 1em;
+}*/
+
 /* Utility Padding */
 .content-buffer {
   padding: 5em 0;
