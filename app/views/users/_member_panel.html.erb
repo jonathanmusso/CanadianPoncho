@@ -2,7 +2,7 @@
   <div class="col-sm-3">
     <h3 class="body-title">User Panel</h3>
     <ul class="side-menu">
-      <li><a href="#">Dashboard</a></li>
+      <li><%= link_to "Dashboard", current_user %></li>
       <li><a href="#">Notifications</a></li>
       <li><%= link_to "Add Vehicle to Registry", new_vehicle_path %></li>
       <li><%= link_to "Edit my account", edit_user_registration_path %></li>
