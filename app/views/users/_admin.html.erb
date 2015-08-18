@@ -11,43 +11,21 @@
     <!-- Widgets -->
     <div class="row">
       <!-- Approval Feed -->
-      <div class="col-sm-6">
+      <div class="col-sm-12">
         <div class="admin-widget">
           <h1 class="widget">Records Waiting for Approval</h1>
           <table class="table">
             <tr>
-              <th>Vehicle</th>
+              <th>Make</th>
+              <th>Model</th>
+              <th>Year</th>
               <th>User</th>
               <th>View</th>
-              <th>Delete</th>
             </tr>
-            <tr>
-              <td>1966 Grande Parisienne</td>
-              <td>Timbuk</td>
-              <td>View</td>
-              <td>Delete</td>
-            </tr>
-            <tr>
-              <td>1966 Grande Parisienne</td>
-              <td>Timbuk</td>
-              <td>View</td>
-              <td>Delete</td>
-            </tr>
-            <tr>
-              <td>1966 Grande Parisienne</td>
-              <td>Timbuk</td>
-              <td>View</td>
-              <td>Delete</td>
-            </tr>
-            <tr>
-              <td>1966 Grande Parisienne</td>
-              <td>Timbuk</td>
-              <td>View</td>
-              <td>Delete</td>
-            </tr>
+            <%= render partial: 'registry_requests/index', collection: @registry_requests, as: :request %>
           </table>
         </div>
-        <a class="admin-widget-link" href="blog_manage.html">View All</a>
+        <%= link_to "View All", registry_requests_path, class: "admin-widget-link" %>
       </div>
       <!-- Blog Feed -->
       <div class="col-sm-6">
