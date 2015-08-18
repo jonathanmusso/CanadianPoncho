@@ -1,0 +1,13 @@
+<!-- Columns -->
+<div class="row">
+  <!-- Dashboard -->
+  <%= render 'admin_panel' %>
+
+  <!-- Body Content -->
+  <div class="col-sm-9">
+    <h1>User List</h1>
+    <% @users.each do |user| %>
+      <p><%= user.name %></p>
+    <% end %>
+  </div>
+</div>

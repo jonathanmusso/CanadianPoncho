@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users, only: [:update, :show]
+  resources :users, only: [:update, :show, :index]
   resources :vehicles do
     member do
       get 're_edit' => 'vehicles#re_edit'
