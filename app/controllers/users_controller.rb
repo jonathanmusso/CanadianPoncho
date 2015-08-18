@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @registry_requests = RegistryRequest.pending
     @vehicles_approved = @user.vehicles.approved
     @vehicles_pending = @user.vehicles.pending
     @vehicles_denied = @user.vehicles.denied
