@@ -82,9 +82,11 @@ class VehiclesController < ApplicationController
   end
 
   def add_vehicle_images
-    params[:vehicle][:vehicle_images][:image].each do |i|
-        @vehicle.vehicle_images.create!(:image => i)
-     end
+    params[:vehicle][:vehicle_images][:image].each_with_index do |img, i|
+      image = @vehicle.vehicle_images.build(image: img)
+      image.primary = true if i == 0
+      image.save!
+    end
   end
 
   def create_registry_request(vehicle)
