@@ -1,5 +1,4 @@
 <div class="row">
-
   <!-- Side Column -->
   <div class="col-sm-3">
     <h3 class="item-category">Select make: </h3>
@@ -28,16 +27,15 @@
 
   <!-- Body Column -->
   <div class="col-sm-9">
-    
-      <h3 class="item-category">Results</h3>
+
       <div class="row">
       <% @vehicles.each do |vehicle| %>
         <div class="col-sm-6 bottom">
           <h3 class="item-title"><%= link_to vehicle.model, vehicle %></h3>
 
-            
+
               <%= image_tag(vehicle.primary_image.image_url, class: "img-responsive") if vehicle.primary_image %>
-            
+
 
           <hr /><%= link_to "View Details", vehicle, class: "item-more" %>
         </div>
