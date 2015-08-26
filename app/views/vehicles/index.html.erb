@@ -29,17 +29,19 @@
   <div class="col-sm-9">
 
       <div class="row">
-      <% @vehicles.each do |vehicle| %>
-        <div class="col-sm-6 bottom">
-          <h3 class="item-title"><%= link_to vehicle.model, vehicle %></h3>
+        <div class="clearfix">
+          <% @vehicles.each do |vehicle| %>
+            <div class="col-sm-6 bottom">
+              <h3 class="item-title"><%= link_to vehicle.model, vehicle %></h3>
 
 
-              <%= image_tag(vehicle.primary_image.image_url, class: "img-responsive") if vehicle.primary_image %>
+                  <%= image_tag(vehicle.primary_image.image_url, class: "img-responsive") if vehicle.primary_image %>
 
 
-          <hr /><%= link_to "View Details", vehicle, class: "item-more" %>
+              <%= link_to "View Details", vehicle, class: "item-more" %>
+            </div>
+          <% end %>
         </div>
-      <% end %>
       </div>
   </div>
 </div>
