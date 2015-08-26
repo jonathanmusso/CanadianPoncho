@@ -13,15 +13,12 @@
     <div class="container-fluid bg-gray">
       <div class="container">
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "About", about_path %></li>
-          <li><%= link_to "Registry", vehicles_path %></li>
           <li>
            <% if current_user %>
            <p class="member-info">
              Hello <%= link_to (current_user.username || current_user.email), edit_user_registration_path %>! - <%= link_to "Dashboard", current_user %> - <%= link_to "Sign out", destroy_user_session_path, method: :delete %></p>
            <% else %>
-             <li><%= link_to "Sign In", new_user_session_path %></li> 
+             <li><%= link_to "Sign In", new_user_session_path %></li>
              <li><%= link_to "Sign Up", new_user_registration_path %></li>
            <% end %>
          </li>
@@ -31,15 +28,25 @@
   </nav>
 
   <!-- BRAND + INFO -->
-  <div class="container-fluid content-buffer bg-red">
+  <div class="container-fluid content-buffer bg-header">
     <div class="container">
-      <%= image_tag("pontiac_brand.png", class: "img-responsive, center-block") %>
-      <h1 class="text-center page-title">Canadian Poncho Registry</h1> 
+      <div class="row">
+        <div class="col-sm-3">
+          <%= image_tag("pontiac_brand_footer.png", class: "img-responsive center-block") %>
+        </div>
+        <div class="col-sm-9 bg">
+          <ul class="nav navbar-nav nav-secondary">
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "About", about_path %></li>
+            <li><%= link_to "Registry", vehicles_path %></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
   <div class="container content-buffer">
-    
-    
+
+
     <% if flash[:notice] %>
      <div class="alert alert-success">
        <button type="button" class="close" data-dismiss="alert">&times;</button>
