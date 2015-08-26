@@ -1,7 +1,11 @@
 /* bootstrap */
+body {
+  font-family: 'Roboto', sans-serif;
+}
 .bg-header {
   border-bottom: 1px solid #ECECEC;
 }
+
 /* Navigation */
 .navbar,
 .navbar-default {
@@ -29,18 +33,17 @@ p.member-info {
   margin-top: .95em;
   margin-left: 1em;
 }
-
-ul.nav-secondary {
-
-}
 .nav-secondary a {
   color: #89181f;
   font-size: 1.5em;
+  font-weight: 100;
 }
 .nav-secondary li a:hover {
   background: red;
 
 }
+
+/* Sorting */
 
 /* Typography */
 h1,
@@ -164,8 +167,9 @@ a.item-more:hover {
 .item-category {
   font-weight: 100;
   text-transform: uppercase;
-  background: black;
-  color: white;
+  border-top: 2px black solid;
+  border-bottom: 1px dotted #ececec;
+  color: black;
   padding: .75em;
 }
 
