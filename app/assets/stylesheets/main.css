@@ -1,5 +1,7 @@
 /* bootstrap */
-
+.bg-header {
+  border-bottom: 1px solid #ECECEC;
+}
 /* Navigation */
 .navbar,
 .navbar-default {
@@ -27,6 +29,19 @@ p.member-info {
   margin-top: .95em;
   margin-left: 1em;
 }
+
+ul.nav-secondary {
+
+}
+.nav-secondary a {
+  color: #89181f;
+  font-size: 1.5em;
+}
+.nav-secondary li a:hover {
+  background: red;
+
+}
+
 /* Typography */
 h1,
 h2 {
@@ -246,6 +261,7 @@ h3.item-approved {
 }
 .bg-gray {
   background: #ECECEC;
+  border-bottom: 1px solid #d2d2d2;
 }
 .bg-black {
   background: #000;
