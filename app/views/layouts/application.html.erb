@@ -27,6 +27,7 @@
              <li><%= link_to "Sign Up", new_user_registration_path %></li>
            <% end %>
          </li>
+         <li><input type="search" id="search" placeholder="Search..." /></li>
         </ul>
       </div>
      </div>
@@ -40,7 +41,7 @@
           <%= image_tag("pontiac_brand_footer.png", class: "img-responsive center-block") %>
         </div>
         <div class="col-sm-9 bg">
-          <ul class="nav navbar-nav nav-secondary">
+          <ul class="nav navbar-nav nav-secondary navbar-left">
             <li><%= link_to "Home", root_path %></li>
             <li><%= link_to "About", about_path %></li>
             <li><%= link_to "Registry", vehicles_path %></li>
