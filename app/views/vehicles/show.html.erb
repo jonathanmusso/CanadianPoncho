@@ -4,7 +4,7 @@
     <h3 class="item-title"><%= @vehicle.user.name %>'s <%= @vehicle.year %> <%= @vehicle.make %></h3>
 
     <% if policy(@vehicle).edit? %>
-      <%= link_to "Edit", edit_vehicle_path(@vehicle), class: 'btn btn-success' %>
+      <%= link_to "Edit", edit_vehicle_path(@vehicle), class: 'edit' %>
     <% end %>
 
     <% if @primary_image %>
@@ -24,29 +24,29 @@
   </div>
   <!-- Specification Column -->
   <div class="col-sm-3">
-    <h3 class="item-title">Specifications</h3>
+    <h3 class="item-category">Specifications</h3>
     <dl class="item">
-      <dt><strong>Owner:</strong></dt>
+      <dt>Owner:</dt>
       <dd><%= link_to @vehicle.user.name, @vehicle.user %></dd>
-      <dt><strong>Make:</strong></dt>
+      <dt>Make:</dt>
       <dd><%= @vehicle.make %></dd>
-      <dt><strong>Model:</strong></dt>
+      <dt>Model:</dt>
       <dd><%= @vehicle.model %></dd>
-      <dt><strong>Year:</strong></dt>
+      <dt>Year:</dt>
       <dd><%= @vehicle.year %></dd>
-      <dt><strong>Production Date:</strong></dt>
+      <dt>Production Date:</dt>
       <dd><%= @vehicle.production_date %></dd>
-      <dt><strong>Engine:</strong></dt>
+      <dt>Engine:</dt>
       <dd><%= @vehicle.engine %></dd>
-      <dt><strong>Transmission:</strong></dt>
+      <dt>Transmission:</dt>
       <dd><%= @vehicle.transmission %></dd>
-      <dt><strong>Trim:</strong></dt>
+      <dt>Trim:</dt>
       <dd><%= @vehicle.trim %></dd>
-      <dt><strong>Color:</strong></dt>
+      <dt>Color:</dt>
       <dd><%= @vehicle.color %></dd>
-      <dt><strong>Options:</strong></dt>
+      <dt>Options:</dt>
       <dd><%= @vehicle.options %></dd>
-      <dt><strong>Location:</strong></dt>
+      <dt>Location:</dt>
       <dd><%= @vehicle.location %></dd>
     </dl>
   </div>
