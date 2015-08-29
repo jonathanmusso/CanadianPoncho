@@ -92,18 +92,20 @@ ul.side-menu {
   list-style-type: none;
 }
 ul.side-menu li {
-  border-bottom: 1px solid #ECECEC;
   font-size: 1.25em;
   margin: 0;
   padding: 1em;
 }
 ul.side-menu li a {
+  transition-property: color;
+  transition-duration: 1s;
   text-transform: uppercase;
-  color: #9c9c9c;
+  font-weight: 100;
+  color: #337ad1;
 }
-ul.side-menu li:hover {
-  color: #9c9c9c;
-  background: #ECECEC;
+ul.side-menu li a:hover {
+  text-decoration: none;
+  color: red;
 }
 dl.item {
   list-style-type: none;
