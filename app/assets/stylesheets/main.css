@@ -122,7 +122,7 @@ ul.side-menu li a:hover {
 }
 dl.item {
   list-style-type: none;
-  margin: 0;
+  margin: 0 0 0 1.35em;
   padding: 0;
 }
 dl.item dt {
@@ -131,6 +131,7 @@ dl.item dt {
 }
 dl.item dt {
   text-transform: uppercase;
+  font-weight: normal;
   color: black;
 }
 dl.item dd {
@@ -167,7 +168,8 @@ h3.body-title {
   color: #fff;
   margin-bottom: 1em;
 }
-a.item-more {
+a.item-more,
+a.edit {
   transition-property: background;
   transition-duration: 1s;
   text-decoration: none;
@@ -179,9 +181,14 @@ a.item-more {
   padding: .5em;
   color: #fff;
 }
-a.item-more:hover {
+a.item-more:hover,
+a.edit:hover {
   background: black;
   color: white;
+}
+a.edit {
+  margin: 0 0 1em 0;
+  background: #188934;
 }
 .item-category {
   font-weight: 100;
