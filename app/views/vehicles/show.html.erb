@@ -6,13 +6,11 @@
     <% if policy(@vehicle).edit? %>
       <%= link_to "Edit", edit_vehicle_path(@vehicle), class: 'btn btn-success' %>
     <% end %>
-    <hr />
 
     <% if @primary_image %>
       <%= image_tag @primary_image.image_url, class: "img-responsive" %>
     <% end %>
-    <hr />
-    
+
     <div class="row">
       <% @images.each do |img| %>
         <div class="col-sm-3 top">
@@ -28,6 +26,8 @@
   <div class="col-sm-3">
     <h3 class="item-title">Specifications</h3>
     <dl class="item">
+      <dt><strong>Owner:</strong></dt>
+      <dd><%= link_to @vehicle.user.name, @vehicle.user %></dd>
       <dt><strong>Make:</strong></dt>
       <dd><%= @vehicle.make %></dd>
       <dt><strong>Model:</strong></dt>
