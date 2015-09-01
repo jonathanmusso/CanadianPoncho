@@ -77,6 +77,11 @@ p.index-info {
   text-transform: uppercase;
   margin: 1em 0 0 0;
 }
+.item-bold {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #454545;
+}
 /* List */
 ul.select-make {
   margin: 5em 0 0 0;
@@ -150,7 +155,14 @@ ul.social-icons li {
   float: left;
   margin: 2em 3em;
 }
-
+dl.notes dt {
+  text-transform: uppercase;
+  font-size: 1.25em;
+}
+dl.notes dd {
+  font-weight: 100;
+  font-size: 1.25em;
+}
 /* Registry Items */
 h3.item-title {
   font-weight: 200;
@@ -169,7 +181,9 @@ h3.body-title {
   margin-bottom: 1em;
 }
 a.item-more,
-a.edit {
+a.edit,
+a.resubmit,
+a.resubmission {
   transition-property: background;
   transition-duration: 1s;
   text-decoration: none;
@@ -182,13 +196,29 @@ a.edit {
   color: #fff;
 }
 a.item-more:hover,
-a.edit:hover {
+a.edit:hover,
+a.resubmit:hover {
   background: black;
   color: white;
 }
-a.edit {
+a.resubmission:hover {
+  background: #337AD1;
+  color: white;
+}
+a.edit,
+a.resubmit {
   margin: 0 0 1em 0;
+}
+a.edit {
   background: #188934;
+}
+a.resubmit {
+  background: red;
+}
+a.resubmission {
+  background: white;
+  border: 1px solid #ececec;
+  color: #337AD1;
 }
 .item-category {
   font-weight: 100;
@@ -238,9 +268,10 @@ a.admin-widget-link:hover {
 
 /* User Panel */
 .user-widget {
-  background: #ECECEC;
-  padding: 1.5em;
-  border-radius: .25em;
+
+
+
+  border: .1em solid red;
 }
 
 .resubmit-widget {
