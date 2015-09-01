@@ -5,50 +5,53 @@
 
   <!-- Body -->
   <div class="col-sm-9">
-    <h3 class="body-title">Welcome to your Account, <%= @user.name %>.</h3>
+    <h3 class="item-title">Welcome, <%= @user.name %>.</h3>
     <p>Here you have access to do certain things, such as <a href="#">submit</a> your vehicle to the Canadian Poncho Registry. Please view the menu on the left for your available options.</p>
 
     <!-- Pending -->
-    <h2>Vehicles Pending Registry Approval</h2>
-    <hr />
+    <h3 class="item-bold bottom top">Vehicles Pending Registry Approval</h3>
     <div class="row">
       <% @vehicles_pending.each do |vehicle| %>
-        <div class="col-sm-4">
-          <div class="user-widget bottom">
-              
-            <p><%= vehicle.make %></p>
-              
-          </div>
+        <div class="col-sm-3">
+
+
+            <a class="item-more"><%= vehicle.make %></a>
+
+
         </div>
       <% end %>
     </div>
 
     <!-- Resubmission -->
-    <h2>Vehicles Requiring Resubmission</h2>
-    <hr/>
+    <h3 class="item-bold bottom top">Vehicles Requiring Resubmission</h3>
     <div class="row">
       <% @vehicles_denied.each do |vehicle| %>
         <div class="col-sm-4">
-          <div class="user-widget resubmit-widget bottom">
-            <p><%= link_to vehicle.make, vehicle %></p>
-            <p>"<%= vehicle.vehicle_request_notes %>"</p>
-            <p><%= link_to "Resubmit", re_edit_vehicle_path(vehicle) %></p>
-          </div>
+
+          <%= link_to vehicle.make, re_edit_vehicle_path(vehicle), class: "resubmit" %>
+          <dl class="notes">
+            <dt>Notes:</dd>
+            <dd><%= vehicle.vehicle_request_notes %></dt>
+          </dl>
+          <%= link_to "Resubmit", re_edit_vehicle_path(vehicle), class: "resubmission" %>
+
         </div>
       <% end %>
     </div>
 
 
     <!-- Current -->
-    <h2>Current Registry Vehicles</h2>
-    <hr />
+    <h3 class="item-bold bottom top">Current Registry Vehicles</h3>
     <div class="row">
       <% @vehicles_approved.each do |vehicle| %>
         <div class="col-sm-4">
-          <div class="user-widget approved-widget bottom">
-            <p><%= link_to vehicle.make, vehicle %></p>
-            <p><%= vehicle.vehicle_request_notes %></p>
-          </div>
+
+          <%= link_to vehicle.make, vehicle, class: "edit" %>
+          <dl class="notes">
+            <dt>Notes:</dd>
+            <dd><%= vehicle.vehicle_request_notes %></dt>
+          </dl>
+
         </div>
       <% end %>
     </div>
