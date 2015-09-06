@@ -1,7 +1,13 @@
 <!-- Columns -->
 <div class="row">
   <!-- Dashboard -->
-  <%= render 'member_panel' %>
+  <% if current_user %>
+    <%= render 'member_panel' %>
+  <% else %>
+    <div class="col-sm-3">
+      <p>Guest panel </p>
+    </div>
+  <% end %>
 
   <!-- Body -->
   <div class="col-sm-9">

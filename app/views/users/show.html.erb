@@ -1,5 +1,9 @@
-<% if current_user.role == 'admin' %>
-  <%= render partial: 'admin' %>
+<% if current_user %>
+  <% if current_user.role == 'admin' %>
+    <%= render partial: 'admin' %>
+  <% else %>
+    <%= render partial: 'member' %>
+  <% end %>
 <% else %>
   <%= render partial: 'member' %>
 <% end %>
