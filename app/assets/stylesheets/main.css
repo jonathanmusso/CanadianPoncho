@@ -1,4 +1,22 @@
 /* bootstrap */
+@media(max-width:767px){
+
+  h3.item-category,
+  ul.side-menu li {
+    text-align: center;
+  }
+
+  p.index-info {
+    text-align: center;
+  }
+
+  .item-more  {
+    margin: auto;
+    font-size: 5em;
+  }
+
+}
+
 body {
   font-family: 'Roboto', sans-serif;
 }
