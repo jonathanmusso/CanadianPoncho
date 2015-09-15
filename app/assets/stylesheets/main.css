@@ -10,11 +10,15 @@
     text-align: center;
   }
 
-  .item-more  {
-    margin: auto;
-    font-size: 5em;
+  body a.item-more  {
+    width: 100%;
+    margin-bottom: 0;
   }
 
+  .footer {
+    display: none;
+  }
+  
 }
 
 body {
