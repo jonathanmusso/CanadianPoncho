@@ -9,6 +9,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'>
+
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
@@ -17,7 +18,7 @@
   <nav class="navbar navbar-custom">
     <div class="container-fluid bg-gray">
       <div class="container">
-        <ul class="nav navbar-nav navbar-right navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
           <li>
            <% if current_user %>
            <p class="member-info">
@@ -45,7 +46,7 @@
           <%= image_tag("pontiac_brand_footer.png", class: "img-responsive center-block") %>
         </div>
         <div class="col-sm-9 bg">
-          <ul class="nav navbar-nav nav-secondary navbar-left navbar-collapse collapse">
+          <ul id="mynav" class="nav navbar-nav nav-secondary navbar-left">
             <li><%= link_to "Home", root_path %></li>
             <li><%= link_to "About", about_path %></li>
             <li><%= link_to "Registry", vehicles_path %></li>
