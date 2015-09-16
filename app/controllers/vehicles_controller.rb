@@ -1,6 +1,12 @@
 class VehiclesController < ApplicationController
   def index
-    @vehicles = Vehicle.approved
+    #raise
+
+    scope = Vehicle.approved
+    scope = scope.filter_by_make(params[:makes]) if params[:makes].present?
+    scope = scope.filter_by_year(params[:years]) if params[:years].present?
+
+    @vehicles = scope
     authorize @vehicles
   end
 
