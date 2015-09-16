@@ -33,7 +33,13 @@
           <%= image_tag("pontiac_brand_footer.png", class: "img-responsive center-block") %>
         </div>
         <div class="col-sm-9 bg">
-          <ul id="mynav" class="nav navbar-nav nav-secondary navbar-left">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynav" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar">toggle</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <ul id="mynav" class="nav navbar-nav nav-secondary navbar-left navbar-collapse collapse">
             <li><%= link_to "Home", root_path %></li>
             <li><%= link_to "About", about_path %></li>
             <li><%= link_to "Registry", vehicles_path %></li>
