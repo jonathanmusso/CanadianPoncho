@@ -1,6 +1,24 @@
 <div class="row">
   <!-- Side Column -->
   <div class="col-sm-3">
+    <%= form_tag filter_vehicles_path do |f| %>
+      <% Vehicle.makes.each do |make| %>
+        <p>
+          <%= check_box_tag "makes[]", make -%>
+          <%= make -%>
+        </p>
+      <% end %>
+
+      <% Vehicle.year_ranges.each do |range| %>
+        <p>
+          <%= check_box_tag "years[]", range -%>
+          <%= range -%>
+        </p>
+      <% end %>
+
+      <%= submit_tag "Filter" %>
+    <% end %>
+
     <h3 class="item-category">Select make: </h3>
     <ul class="side-menu">
       <li><a href="#">Pontiac</a></li>
