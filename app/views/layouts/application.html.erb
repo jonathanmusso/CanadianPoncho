@@ -14,17 +14,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <!-- NAVIGATION -->
-  <nav class="navbar navbar-custom">
-    <div class="container-fluid bg-gray">
-      <div class="container">
-        <ul class="nav navbar-nav navbar-right">
-         <li><input type="search" id="search" placeholder="Search..." /></li>
-        </ul>
-      </div>
-     </div>
-  </nav>
-
   <!-- BRAND + INFO -->
   <div class="container-fluid content-buffer bg-header">
     <div class="container">
@@ -39,7 +28,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <ul id="mynav" class="nav navbar-nav nav-secondary navbar-left navbar-collapse collapse">
+          <ul id="mynav" class="nav navbar-nav nav-secondary navbar-right navbar-collapse collapse">
             <li><%= link_to "Home", root_path %></li>
             <li><%= link_to "About", about_path %></li>
             <li><%= link_to "Registry", vehicles_path %></li>
@@ -62,6 +51,7 @@
              <% end %>
           </ul>
         </div>
+        <input type="search" id="search" placeholder="Search..." />
       </div>
     </div>
   </div>
