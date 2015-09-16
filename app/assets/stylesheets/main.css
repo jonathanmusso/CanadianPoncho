@@ -5,6 +5,11 @@
     padding: 0 1em;
   }
 
+  body #search {
+    width: 100%;
+    margin-top: 1.5em;
+  }
+
   .nav > li {
     display: block;
     float: left;
@@ -96,13 +101,15 @@ p.member-info {
 
 /* Search */
 #search {
-  font-weight: 100;
+  display: inline-block;
+  font-weight: bold;
   width: 250px;
   height: 48px;
   padding: 1em;
-  margin: 0 0 0 1.75em;
   border: 0;
-  color: #bbb;
+  color: white;
+  background: red;
+  float: right;
 }
 
 /* Typography */
