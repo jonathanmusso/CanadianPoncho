@@ -1,6 +1,10 @@
 /* bootstrap */
 @media(max-width:767px){
 
+  body {
+    padding: 0 1em;
+  }
+
   .nav > li {
     display: block;
     float: left;
