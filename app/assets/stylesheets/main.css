@@ -28,6 +28,10 @@
     text-align: center;
   }
 
+  ul.side-menu li {
+    display: none;
+  }
+
   p.index-info {
     text-align: center;
   }
@@ -42,6 +46,7 @@
     font-size: 1.5em;
     padding: 1em;
     text-align: center;
+    background: black;
   }
 
   .footer {
@@ -153,15 +158,13 @@ ul.side-menu li {
   font-size: 1.25em;
   margin: 0;
   padding: 1em;
-}
-ul.side-menu li a {
   transition-property: color;
   transition-duration: 1s;
   text-transform: uppercase;
   font-weight: 100;
   color: #337ad1;
 }
-ul.side-menu li a:hover {
+ul.side-menu li:hover {
   text-decoration: none;
   color: red;
 }
@@ -203,6 +206,29 @@ dl.notes dd {
   font-weight: 100;
   font-size: 1.25em;
 }
+
+/* Filter Checkbox */
+input[type="checkbox"] {
+
+}
+input[type=submit] {
+  transition-property: background;
+  transition-duration: 1s;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: black;
+  display: inline-block;
+  font-size: 1em;
+  margin-top: 1em;
+  padding: .5em;
+  color: #fff;
+  border: 0;
+}
+input[type=submit]:hover {
+  background: #89181f;
+  color: white;
+}
+
 /* Registry Items */
 h3.item-title {
   font-weight: 200;
