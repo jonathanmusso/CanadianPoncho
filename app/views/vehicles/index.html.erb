@@ -5,16 +5,20 @@
     <ul class="side-menu">
       <%= form_tag filter_vehicles_path do |f| %>
         <% Vehicle.makes.each do |make| %>
-            <%= check_box_tag "makes[]", make -%>
-            <li><%= make -%></li>
+            <li>
+              <%= check_box_tag "makes[]", make -%>
+              <%= make -%>
+            </li>
         <% end %>
 
         <% Vehicle.year_ranges.each do |range| %>
-            <%= check_box_tag "years[]", range -%>
-            <li><%= range -%></li>
+            <li>
+              <%= check_box_tag "years[]", range -%>
+              <%= range -%>
+            </li>
         <% end %>
 
-        <%= submit_tag "Filter" %>
+        <li><%= submit_tag "Filter" %></li>
       <% end %>
     </ul>
   </div>
