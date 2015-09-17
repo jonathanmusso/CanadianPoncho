@@ -11,7 +11,7 @@ class Vehicle < ActiveRecord::Base
   scope :pending, -> { joins(:registry_requests).where("registry_requests.approved_at IS NULL AND registry_requests.denied_at IS NULL") }
   scope :denied, -> { joins(:registry_requests).where("registry_requests.denied_at IS NOT NULL") }
   scope :filter_by_make, ->(makes) { where(make: makes) }
-  scope :filter_by_year, ->(years) { where(year: year_conversion[years]) }
+  scope :filter_by_year, ->(ranges) { where(year: convert_years(ranges)) }
 
   def self.makes
     ["Pontiac", "Acadian", "Beaumont"]
@@ -21,6 +21,16 @@ class Vehicle < ActiveRecord::Base
     ["1900-1909", "1910-1919", "1920-1929", "1930-1939",
      "1940-1949", "1950-1959", "1960-1969", "1970-1979",
      "1980-1989"]
+  end
+
+  def self.convert_years(ranges)
+    ranges = ranges.map do |rs|
+    first, last = rs.split("-").map do |is|
+      Integer(is)
+    end
+    Range.new(first, last)
+end
+
   end
 
   def self.year_conversion
