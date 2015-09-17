@@ -1,41 +1,21 @@
 <div class="row">
   <!-- Side Column -->
   <div class="col-sm-3">
-    <%= form_tag filter_vehicles_path do |f| %>
-      <% Vehicle.makes.each do |make| %>
-        <p>
-          <%= check_box_tag "makes[]", make -%>
-          <%= make -%>
-        </p>
-      <% end %>
-
-      <% Vehicle.year_ranges.each do |range| %>
-        <p>
-          <%= check_box_tag "years[]", range -%>
-          <%= range -%>
-        </p>
-      <% end %>
-
-      <%= submit_tag "Filter" %>
-    <% end %>
-
-    <h3 class="item-category">Select make: </h3>
+    <h3 class="item-category">Make & Year: </h3>
     <ul class="side-menu">
-      <li><a href="#">Pontiac</a></li>
-      <li><a href="#">Beaumont</a></li>
-      <li><a href="#">Acadian</a></li>
-    </ul>
-    <h3 class="item-category">Select year: </h3>
-    <ul class="side-menu">
-      <li><a href="#">1900-1909</a></li>
-      <li><a href="#">1910-1919</a></li>
-      <li><a href="#">1920-1929</a></li>
-      <li><a href="#">1930-1939</a></li>
-      <li><a href="#">1940-1949</a></li>
-      <li><a href="#">1950-1959</a></li>
-      <li><a href="#">1960-1969</a></li>
-      <li><a href="#">1970-1979</a></li>
-      <li><a href="#">1980-1989</a></li>
+      <%= form_tag filter_vehicles_path do |f| %>
+        <% Vehicle.makes.each do |make| %>
+            <%= check_box_tag "makes[]", make -%>
+            <li><%= make -%></li>
+        <% end %>
+
+        <% Vehicle.year_ranges.each do |range| %>
+            <%= check_box_tag "years[]", range -%>
+            <li><%= range -%></li>
+        <% end %>
+
+        <%= submit_tag "Filter" %>
+      <% end %>
     </ul>
   </div>
 
