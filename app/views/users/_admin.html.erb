@@ -5,7 +5,7 @@
 
   <!-- Body Content -->
   <div class="col-sm-9">
-    <h3 class="body-title">Welcome to your Administrator Account, <%= @user.email %>.</h3>
+    <h3 class="item-title">Welcome to your Administrator Account, <%= @user.email %>.</h3>
     <p>Here you have complete control of the Canadian Poncho Portal. Feel free to manage the application through the menu on the left.</p>
 
     <!-- Widgets -->
@@ -25,85 +25,7 @@
             <%= render partial: 'registry_requests/index', collection: @registry_requests, as: :request %>
           </table>
         </div>
-        <%= link_to "View All", registry_requests_path, class: "admin-widget-link" %>
-      </div>
-      <!-- Blog Feed -->
-      <div class="col-sm-6">
-        <div class="admin-widget">
-          <h1 class="widget">Recent Blog Posts</h1>
-          <table class="table">
-            <tr>
-              <th>Title</th>
-              <th>User</th>
-              <th>Edit</th>
-              <th>Delete</th>
-            </tr>
-            <tr>
-              <td>New Website!</td>
-              <td>Jonathan</td>
-              <td>Edit</td>
-              <td>Delete</td>
-            </tr>
-            <tr>
-              <td>New Website!</td>
-              <td>Jonathan</td>
-              <td>Edit</td>
-              <td>Delete</td>
-            </tr>
-            <tr>
-              <td>New Website!</td>
-              <td>Jonathan</td>
-              <td>Edit</td>
-              <td>Delete</td>
-            </tr>
-            <tr>
-              <td>New Website!</td>
-              <td>Jonathan</td>
-              <td>Edit</td>
-              <td>Delete</td>
-            </tr>
-          </table>
-        </div>
-        <a class="admin-widget-link" href="blog_create.html">Create Post</a>
-      </div>
-      <!-- Current Moderators -->
-      <div class="col-sm-6">
-        <div class="admin-widget">
-          <h1 class="widget">Current Moderators</h1>
-          <table class="table">
-            <tr>
-              <th>Name</th>
-              <th>User</th>
-              <th>Edit</th>
-              <th>Delete</th>
-            </tr>
-            <tr>
-              <td>Carl Stevenson</td>
-              <td>CarlS</td>
-              <td>Edit</td>
-              <td>Delete</td>
-            </tr>
-            <tr>
-              <td>Carl Stevenson</td>
-              <td>CarlS</td>
-              <td>Edit</td>
-              <td>Delete</td>
-            </tr>
-            <tr>
-              <td>Carl Stevenson</td>
-              <td>CarlS</td>
-              <td>Edit</td>
-              <td>Delete</td>
-            </tr>
-            <tr>
-              <td>Carl Stevenson</td>
-              <td>CarlS</td>
-              <td>Edit</td>
-              <td>Delete</td>
-            </tr>
-          </table>
-        </div>
-        <a class="admin-widget-link" href="#">Manage Moderators</a>
+        <%= link_to "View All", registry_requests_path, class: "item-more" %>
       </div>
     </div>
   </div>
