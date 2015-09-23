@@ -23,5 +23,5 @@ Rails.application.routes.draw do
   end
 
   get 'about' => 'welcome#about'
-  root to: 'welcome#index'
+  root to: 'vehicles#index'
 end
