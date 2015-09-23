@@ -6,7 +6,7 @@
 <% end %>
 
 <div class="col-sm-9">
-  <h3 class="body-title">Add Vehicle to Registry</h3>
+  <h3 class="item-title">Add Vehicle to Registry</h3>
   <%= form_for @vehicle do |f| %>
     <div class="form-group">
       <%= f.label :make %>
@@ -62,9 +62,9 @@
       <%= f.label :description %>
       <%= f.text_area :description, class: 'form-control', placeholder: "Enter Vehicle Description" %>
     </div>
-    
+
     <%= f.fields_for :vehicle_images do |p| %>
-    
+
       <div class="form-group">
         <%= p.label :images %>
         <%= p.file_field :image, :multiple => true, name: "vehicle[vehicle_images][image][]" %>
@@ -73,7 +73,7 @@
     <% end %>
 
     <div class="form-group">
-      <%= f.submit "Save", class: 'btn btn-success' %>
+      <%= f.submit "Save", class: 'item-more' %>
     </div>
   <% end %>
 </div>
