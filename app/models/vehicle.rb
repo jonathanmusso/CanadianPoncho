@@ -24,27 +24,10 @@ class Vehicle < ActiveRecord::Base
   end
 
   def self.convert_years(ranges)
-    ranges = ranges.map do |rs|
-    first, last = rs.split("-").map do |is|
-      Integer(is)
+    ranges.map do |range|
+      first, last = range.split("-")
+      first..last
     end
-    Range.new(first, last)
-end
-
-  end
-
-  def self.year_conversion
-    {
-      "1900-1909" => (1900..1909).to_a,
-      "1910-1919" => (1910..1919).to_a,
-      "1920-1929" => (1920..1929).to_a,
-      "1930-1939" => (1930..1939).to_a,
-      "1940-1949" => (1940..1949).to_a,
-      "1950-1959" => (1950..1959).to_a,
-      "1960-1969" => (1960..1969).to_a,
-      "1970-1979" => (1970..1979).to_a,
-      "1980-1989" => (1980..1989).to_a
-    }
   end
 
   def primary_and_vehicle_images
