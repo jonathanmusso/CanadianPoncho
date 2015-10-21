@@ -8,13 +8,13 @@
     <% end %>
 
     <% if @primary_image %>
-      <%= image_tag @primary_image.image_url, class: "img-responsive" %>
+      <%= image_tag @primary_image.image_url, class: "img-responsive primary-image" %>
     <% end %>
 
     <div class="row">
       <% @images.each do |img| %>
         <div class="col-sm-3 top">
-          <%= image_tag img.image_url, class: "img-responsive" %>
+          <%= image_tag img.image_url, class: "img-responsive secondary-image" %>
         </div>
       <% end %>
     </div>
@@ -51,3 +51,12 @@
     </dl>
   </div>
 </div>
+
+<%= javascript_tag do %>
+$(document).ready(function(){
+    var primaryImage = $(".primary-image");
+    $(".secondary-image").click(function(e){
+        primaryImage.attr("src", $(e.target).attr("src"));
+    });
+});
+<% end %>
