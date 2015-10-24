@@ -55,7 +55,11 @@
 <%= javascript_tag do %>
 $(document).ready(function(){
     var primaryImage = $(".primary-image");
-    $(".secondary-image").click(function(e){
+    $(".secondary-image:first").addClass("active-secondary");
+
+    $(".secondary-image").click(function(e) {
+      $(".secondary-image").removeClass("active-secondary");
+        $(this).addClass("active-secondary");
         primaryImage.attr("src", $(e.target).attr("src"));
     });
 });
