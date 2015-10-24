@@ -11,8 +11,12 @@
   }
 
   #mynav {
-    margin: 2em 0 0 0;
+    margin: 5em 0 0 0;
     text-align: center;
+  }
+
+  #mynav li {
+    width: 100%;
   }
 
   body .content-buffer {
