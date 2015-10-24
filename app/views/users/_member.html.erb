@@ -40,11 +40,10 @@
       <div class="row">
         <% @vehicles_denied.each do |vehicle| %>
           <div class="col-sm-4">
-
             <%= link_to vehicle.make, re_edit_vehicle_path(vehicle), class: "resubmit" %>
             <dl class="notes">
-              <dt>Notes:</dd>
-              <dd><%= vehicle.vehicle_request_notes %></dt>
+              <dt>Notes:</dt>
+              <dd><%= create_list(vehicle.vehicle_request_notes) %></dd>
             </dl>
             <%= link_to "Resubmit", re_edit_vehicle_path(vehicle), class: "resubmission" %>
 
