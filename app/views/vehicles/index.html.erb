@@ -1,27 +1,63 @@
 <div class="row">
-
   <!-- Side Column -->
   <div class="col-sm-3">
-    <h3 class="item-category">Make: </h3>
-    <ul class="side-menu">
-      <%= form_tag filter_vehicles_path do |f| %>
-        <% Vehicle.makes.each do |make| %>
-            <li>
-              <%= display_chosen_check_box_tag(make, params[:makes], "makes[]") -%>
-              <%= make -%>
-            </li>
-        <% end %>
-  <h3 class="item-category">Year: </h3>
-        <% Vehicle.year_ranges.each do |range| %>
-            <li>
-              <%= display_chosen_check_box_tag(range, params[:years], "years[]") -%>
-              <%= range -%>
-            </li>
-        <% end %>
 
-        <li><%= submit_tag "Filter" %></li>
-      <% end %>
-    </ul>
+  <%= form_tag filter_vehicles_path do |f| %>
+    <div class="mobile-filter">
+      <h3 class="item-category" data-toggle="collapse" data-target="#make-filter">Make: </h3>
+      <ul id="make-filter" class="side-menu collapse out make-filter">
+
+          <% Vehicle.makes.each do |make| %>
+              <li>
+                <%= display_chosen_check_box_tag(make, params[:makes], "makes[]") -%>
+                <%= make -%>
+              </li>
+          <% end %>
+      </ul>
+    </div>
+
+    <div class="desktop-filter">
+      <h3 class="item-category">Make: </h3>
+      <ul class="side-menu">
+          <% Vehicle.makes.each do |make| %>
+              <li>
+                <%= display_chosen_check_box_tag(make, params[:makes], "makes[]") -%>
+                <%= make -%>
+              </li>
+          <% end %>
+      </ul>
+    </div>
+
+    <div class="mobile-filter">
+      <h3 class="item-category" data-toggle="collapse" data-target="#year-filter">Year: </h3>
+      <ul id="year-filter" class="side-menu collapse out">
+          <% Vehicle.year_ranges.each do |range| %>
+              <li>
+                <%= display_chosen_check_box_tag(range, params[:years], "years[]") -%>
+                <%= range -%>
+              </li>
+          <% end %>
+
+          <li><%= submit_tag "Filter" %></li>
+
+      </ul>
+    </div>
+
+    <div class="desktop-filter">
+      <h3 class="item-category">Year: </h3>
+      <ul class="side-menu">
+          <% Vehicle.year_ranges.each do |range| %>
+              <li>
+                <%= display_chosen_check_box_tag(range, params[:years], "years[]") -%>
+                <%= range -%>
+              </li>
+          <% end %>
+
+          <li><%= submit_tag "Filter" %></li>
+        <% end %>
+      </ul>
+    </div>
+
   </div>
 
   <!-- Body Column -->
