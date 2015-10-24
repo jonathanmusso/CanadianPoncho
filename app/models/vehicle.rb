@@ -9,7 +9,7 @@ class Vehicle < ActiveRecord::Base
   default_scope { order('created_at DESC') }
   scope :approved, -> { joins(:registry_requests).where("registry_requests.approved_at IS NOT NULL") }
   scope :pending, -> { joins(:registry_requests).where("registry_requests.approved_at IS NULL AND registry_requests.denied_at IS NULL") }
-  scope :denied, -> { joins(:registry_requests).where("registry_requests.denied_at IS NOT NULL") }
+  scope :denied, -> { joins(:registry_requests).where("registry_requests.denied_at IS NOT NULL AND registry_requests.archived_at IS NULL") }
   scope :filter_by_make, ->(makes) { where(make: makes) }
   scope :filter_by_year, ->(ranges) { where(year: convert_years(ranges)) }
 
@@ -30,10 +30,9 @@ class Vehicle < ActiveRecord::Base
     end
   end
 
-  def primary_and_vehicle_images
+  def primary_and_all_vehicle_images
     primary = primary_image
-    rest = vehicle_images.where(primary: false)
-    [primary, rest]
+    [primary, vehicle_images]
   end
 
   def primary_image
@@ -47,6 +46,10 @@ class Vehicle < ActiveRecord::Base
 
     # registry_requests.pluck(:notes)
 
-    registry_requests.pluck(:notes).join(" ")
+    registry_requests.pluck(:notes)
+  end
+
+  def active_registry_request
+    registry_requests.order(created_at: :desc).take
   end
 end
