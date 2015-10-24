@@ -12,7 +12,7 @@ class VehiclesController < ApplicationController
 
   def show
     @vehicle = Vehicle.find(params[:id])
-    @primary_image, @images = @vehicle.primary_and_vehicle_images
+    @primary_image, @images = @vehicle.primary_and_all_vehicle_images
   end
 
   def new
@@ -40,7 +40,7 @@ class VehiclesController < ApplicationController
   def edit
     @vehicle = Vehicle.find(params[:id])
     authorize @vehicle
-    @primary_image, @images = @vehicle.primary_and_vehicle_images
+    @primary_image, @images = @vehicle.primary_and_all_vehicle_images
   end
 
   def update
@@ -61,7 +61,7 @@ class VehiclesController < ApplicationController
   def re_edit
     @vehicle = Vehicle.find(params[:id])
     authorize @vehicle
-    @primary_image, @images = @vehicle.primary_and_vehicle_images
+    @primary_image, @images = @vehicle.primary_and_all_vehicle_images
   end
 
   def resubmit
@@ -71,7 +71,11 @@ class VehiclesController < ApplicationController
 
     if @vehicle.update_attributes(vehicle_params)
       add_vehicle_images if params[:vehicle][:vehicle_images][:image]
-      create_registry_request(@vehicle)
+
+      Vehicle.transaction do
+        @vehicle.active_registry_request.archive
+        create_registry_request(@vehicle)
+      end
 
       flash[:notice] = "The Vehicle entry was updated and sent to the Administrator. Please wait for Approval."
       redirect_to @vehicle
@@ -96,7 +100,7 @@ class VehiclesController < ApplicationController
   end
 
   def create_registry_request(vehicle)
-    RegistryRequest.create(vehicle: vehicle)
+    RegistryRequest.create!(vehicle: vehicle)
   end
 
 end
