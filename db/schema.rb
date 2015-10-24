@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150728205629) do
+ActiveRecord::Schema.define(version: 20151024173932) do
 
   create_table "registry_requests", force: :cascade do |t|
     t.datetime "approved_at"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150728205629) do
     t.integer  "vehicle_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.datetime "archived_at"
   end
 
   add_index "registry_requests", ["vehicle_id"], name: "index_registry_requests_on_vehicle_id"
