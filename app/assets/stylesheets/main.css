@@ -31,10 +31,16 @@
   ul.side-menu li {
     text-align: center;
   }
+body .mobile-filter{
+  display: block;
+}
+.desktop-filter{
+  display: none;
 
-  ul.side-menu li {
+}
+  /*ul.side-menu li {
     display: none;
-  }
+  }*/
 
   p.index-info {
     text-align: center;
@@ -124,7 +130,7 @@ p {
   color: gray;
 }
 p.index-info {
-  font-size: 1.25em;
+  font-size: 1.15em;
   text-transform: uppercase;
   margin: 1em 0 0 0;
 }
@@ -134,6 +140,10 @@ p.index-info {
   color: #454545;
 }
 /* List */
+.mobile-filter{
+  display: none;
+
+}
 ul.select-make {
   margin: 5em 0 0 0;
   padding: 0;
@@ -397,4 +407,7 @@ h3.item-approved {
 }
 .bg-black {
   background: #000;
+}
+img.active-secondary {
+  opacity: 0.25;
 }
