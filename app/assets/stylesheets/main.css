@@ -135,7 +135,7 @@ p {
   color: gray;
 }
 p.index-info {
-  font-size: 1.15em;
+  font-size: 1.1em;
   text-transform: uppercase;
   margin: 1em 0 0 0;
 }
@@ -289,7 +289,7 @@ a.resubmit:hover {
   color: white;
 }
 a.resubmission:hover {
-  background: #337AD1;
+  background: black;
   color: white;
 }
 a.edit,
@@ -303,9 +303,8 @@ a.resubmit {
   background: red;
 }
 a.resubmission {
-  background: white;
-  border: 1px solid #ececec;
-  color: #337AD1;
+  background: #337AD1;
+  color: white;
 }
 .item-category {
   font-weight: 100;
