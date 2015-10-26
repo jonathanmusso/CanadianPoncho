@@ -23,7 +23,6 @@
   }
 
   body .bg-header {
-    border: 0;
     margin-top: 2em;
   }
 
@@ -79,9 +78,6 @@ body {
     border: 0;
 }
 
-.bg-header {
-  border-bottom: 1px solid #ECECEC;
-}
 .form-control {
   border-radius: 0;
 }
