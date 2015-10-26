@@ -9,6 +9,14 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, alert: exception.message
   end
 
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    not_found
+  end
+
+  def not_found
+    render file: "#{Rails.root}/public/404.html", layout: false, status: 404
+  end
+
   protected
 
   def configure_permitted_parameters
