@@ -40,12 +40,6 @@ class Vehicle < ActiveRecord::Base
   end
 
   def vehicle_request_notes
-    # self.registry_requests.each do |rr|
-    #   rr.notes
-    # end
-
-    # registry_requests.pluck(:notes)
-
     registry_requests.pluck(:notes)
   end
 
