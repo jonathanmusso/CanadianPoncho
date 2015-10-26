@@ -43,6 +43,10 @@ class Vehicle < ActiveRecord::Base
     registry_requests.pluck(:notes)
   end
 
+  def vehicle_request_approved_notes
+    registry_requests.pluck(:notes).join(" ")
+  end
+
   def active_registry_request
     registry_requests.order(created_at: :desc).take
   end
