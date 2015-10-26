@@ -63,6 +63,7 @@
 
 }
 
+html,
 body {
   font-family: 'Roboto', sans-serif;
 }
@@ -380,6 +381,18 @@ a.admin-widget-link:hover {
 /* Form */
 textarea.form-control {
     height: 20em;
+}
+
+.form-control {
+  height: 3em;
+  margin-bottom: 1.5em;
+  font-size: 1.5em;
+}
+
+label {
+  font-size: 1.5em;
+  text-transform: uppercase;
+  margin-bottom: 1em;
 }
 
 /* Utility Padding */
