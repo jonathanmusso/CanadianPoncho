@@ -48,7 +48,7 @@
     text-align: center;
   }
 
-  body a.item-more  {
+  body a.item-more {
     width: 100%;
     margin-bottom: 0;
     font-size: 1.5em;
@@ -56,11 +56,18 @@
     text-align: center;
     background: black;
   }
-
-  .footer {
-    display: none;
+  body a.edit,
+  body a.resubmit {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 1em;
   }
 
+  body dl.item {
+    text-align: center;
+    font-size: 1.5em;
+  }
 }
 
 html,
