@@ -377,24 +377,10 @@ a.admin-widget-link:hover {
 .approved-widget a {
   color: red;
 }
-/*h3.item-declined {
-  font-weight: 200;
-  text-transform: uppercase;
-  border: .1em solid #4C1B1B;
-  background: #4C1B1B;
-  padding: .45em;
-  color: #fff;
-  margin-bottom: 1em;
+/* Form */
+textarea.form-control {
+    height: 20em;
 }
-h3.item-approved {
-  font-weight: 200;
-  text-transform: uppercase;
-  border: .1em solid #9AC836;
-  background: #9AC836;
-  padding: .45em;
-  color: #fff;
-  margin-bottom: 1em;
-}*/
 
 /* Utility Padding */
 .content-buffer {
