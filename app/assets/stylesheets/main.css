@@ -11,7 +11,6 @@
   }
 
   #mynav {
-    margin: 5em 0 0 0;
     text-align: center;
   }
 
@@ -22,6 +21,7 @@
   body .content-buffer {
     padding: 0;
   }
+
   body .bg-header {
     border: 0;
     margin-top: 2em;
@@ -31,16 +31,14 @@
   ul.side-menu li {
     text-align: center;
   }
-body .mobile-filter{
-  display: block;
-}
-.desktop-filter{
-  display: none;
 
-}
-  /*ul.side-menu li {
+  body .mobile-filter{
+    display: block;
+  }
+
+  .desktop-filter{
     display: none;
-  }*/
+  }
 
   p.index-info {
     text-align: center;
@@ -68,12 +66,18 @@ body .mobile-filter{
 body {
   font-family: 'Roboto', sans-serif;
 }
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border: 0;
+}
+
 .bg-header {
   border-bottom: 1px solid #ECECEC;
 }
 .form-control {
   border-radius: 0;
 }
+
 /* Navigation */
 .navbar,
 .navbar-default {
@@ -101,14 +105,14 @@ p.member-info {
   margin-top: .95em;
   margin-left: 1em;
 }
-.nav-secondary a {
+.navbar-default .nav-secondary li a {
   color: #89181f;
   font-size: 1.5em;
-  font-weight: 100;
+  font-weight: 400;
 }
-.nav-secondary li a:hover {
+.navbar-default .nav-secondary li a:hover {
   background: red;
-
+  color: white;
 }
 
 /* Typography */
