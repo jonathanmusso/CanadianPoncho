@@ -145,9 +145,8 @@ p.index-info {
   color: #454545;
 }
 /* List */
-.mobile-filter{
+.mobile-filter {
   display: none;
-
 }
 ul.select-make {
   margin: 5em 0 0 0;
@@ -219,11 +218,27 @@ ul.social-icons li {
   float: left;
   margin: 2em 3em;
 }
-dl.notes dt {
+
+/* DL::NOTES */
+dl.resub-notes {
+  background: red;
+  padding: 1em;
+}
+dl.resub-notes ol li {
+  color: white;
+  font-weight: 400;
+}
+dl.notes dt,
+dl.resub-notes dt {
   text-transform: uppercase;
   font-size: 1.25em;
+  margin-bottom: .75em;
 }
-dl.notes dd {
+dl.resub-notes dt {
+  color: yellow;
+}
+dl.notes dd,
+dl.resub-notes dd {
   font-weight: 100;
   font-size: 1.25em;
 }
