@@ -6,7 +6,11 @@
 <% end %>
 
 <div class="col-sm-9">
-  <h3 class="body-title">Edit Vehicle</h3>
+  <h3 class="item-title">Edit Vehicle</h3>
+  <dl class="resub-notes">
+    <dt>Notes:</dt>
+    <dd><%= create_list(@vehicle.vehicle_request_notes) %></dd>
+  </dl>
   <%= form_for @vehicle, as: :vehicle, url: { action: "resubmit" } do |f| %>
     <div class="form-group">
       <%= f.label :make %>
@@ -62,7 +66,7 @@
       <%= f.label :description %>
       <%= f.text_area :description, class: 'form-control', placeholder: "Enter Vehicle Description" %>
     </div>
-    
+
     <h1>Primary Gallery Image</h1>
     <% if @primary_image %>
       <%= image_tag @primary_image.image_url, class: "img-responsive" %>
@@ -81,7 +85,7 @@
     </div>
 
     <%= f.fields_for :vehicle_images do |p| %>
-    
+
       <div class="form-group top">
         <%= p.label :images %>
         <%= p.file_field :image, :multiple => true, name: "vehicle[vehicle_images][image][]" %>
