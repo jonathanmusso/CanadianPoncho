@@ -67,6 +67,7 @@
     <% if @primary_image %>
       <%= image_tag @primary_image.image_url, class: "img-responsive" %>
       <p><%= link_to "Remove Image", vehicle_image_path(@primary_image), method: :delete, class: "item-more" %></p>
+      <p><strong>Please note:</strong> Clicking the above button will delete your photo from your profile. If you want to change your primary image, simply click the green button, "Make Primary".</p>
     <% end %>
     <hr />
 
