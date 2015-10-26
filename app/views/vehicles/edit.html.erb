@@ -6,7 +6,7 @@
 <% end %>
 
 <div class="col-sm-9">
-  <h3 class="body-title">Edit Vehicle</h3>
+  <h3 class="item-title">Edit Vehicle</h3>
   <%= form_for @vehicle do |f| %>
     <div class="form-group">
       <%= f.label :make %>
@@ -62,11 +62,11 @@
       <%= f.label :description %>
       <%= f.text_area :description, class: 'form-control', placeholder: "Enter Vehicle Description" %>
     </div>
-    
-    <h1>Primary Gallery Image</h1>
+
+    <h3 class="item-title">Primary Gallery Image</h3>
     <% if @primary_image %>
       <%= image_tag @primary_image.image_url, class: "img-responsive" %>
-      <p><%= link_to "Remove Image", vehicle_image_path(@primary_image), method: :delete %></p>
+      <p><%= link_to "Remove Image", vehicle_image_path(@primary_image), method: :delete, class: "item-more" %></p>
     <% end %>
     <hr />
 
@@ -74,14 +74,14 @@
     <% @images.each do |img| %>
       <div class="col-sm-3 top">
         <%= image_tag img.image_url, class: "img-responsive" %>
-        <%= link_to "Remove Image", vehicle_image_path(img), method: :delete %>
-        <%= link_to "Make Primary", vehicle_image_path(img), method: :patch %>
+        <%= link_to "Remove Image", vehicle_image_path(img), method: :delete, class: "item-more bottom" %>
+        <%= link_to "Make Primary", vehicle_image_path(img), method: :patch, class: "edit" %>
       </div>
     <% end %>
     </div>
 
     <%= f.fields_for :vehicle_images do |p| %>
-    
+
       <div class="form-group top">
         <%= p.label :images %>
         <%= p.file_field :image, :multiple => true, name: "vehicle[vehicle_images][image][]" %>
@@ -90,7 +90,7 @@
     <% end %>
 
     <div class="form-group">
-      <%= f.submit "Save", class: 'btn btn-success' %>
+      <%= f.submit "Save", class: 'item-more' %>
     </div>
   <% end %>
 </div>
