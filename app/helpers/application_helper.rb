@@ -6,4 +6,8 @@ module ApplicationHelper
       end.join.html_safe
     end
   end
+
+  def nav_active(path)
+    "nav-active" if current_page?(path)
+  end
 end
