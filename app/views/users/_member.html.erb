@@ -1,5 +1,3 @@
-<!-- Columns -->
-<div class="row">
   <!-- Dashboard -->
   <% if current_user %>
     <%= render 'member_panel' %>
@@ -21,23 +19,27 @@
 
     <% if current_user == @user %>
       <p>Here you have access to do certain things, such as <%= link_to "submit", new_vehicle_path %> your vehicle to the Canadian Poncho Registry. Please view the menu on the left for your available options.</p>
+
       <!-- Pending -->
       <h3 class="item-bold bottom top">Vehicles Pending Registry Approval</h3>
-      <div class="row">
+      <% if @vehicles_pending.empty? %>
+        <p>You have no pending vehicles.</p>
+      <% end %>
 
+      <div class="row">
         <% @vehicles_pending.each do |vehicle| %>
           <div class="col-sm-3">
-
-
-              <a class="item-more"><%= vehicle.make %></a>
-
-
+            <a class="item-more"><%= vehicle.make %></a>
           </div>
         <% end %>
       </div>
 
       <!-- Resubmission -->
       <h3 class="item-bold bottom top">Vehicles Requiring Resubmission</h3>
+      <% if @vehicles_denied.empty? %>
+        <p>You have no denied vehicles.</p>
+      <% end %>
+
       <div class="row">
         <% @vehicles_denied.each do |vehicle| %>
           <div class="col-sm-4">
@@ -49,11 +51,15 @@
 
     <!-- Current -->
     <h3 class="item-bold bottom top">Current Registry Vehicles</h3>
+    <% if @vehicles_approved.empty? %>
+      <p>You have no vehicles in the Registry.</p>
+    <% end %>
+
     <div class="row">
       <% @vehicles_approved.each do |vehicle| %>
         <div class="col-sm-4">
-
           <%= link_to vehicle.make, vehicle, class: "edit" %>
+
           <% if current_user == @user %>
             <dl class="notes">
               <dt>Notes:</dd>
@@ -66,4 +72,3 @@
     </ul>
 
   </div>
-</div>
