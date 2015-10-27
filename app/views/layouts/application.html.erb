@@ -35,24 +35,24 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
               <ul id="mynav" class="nav navbar-nav navbar-right nav-secondary">
-                <li><%= link_to "Registry", root_path %></li>
-                <li><%= link_to "About", about_path %></li>
+                <li><%= link_to "Registry", root_path, class: nav_active(root_path) %></li>
+                <li><%= link_to "About", about_path, class: nav_active(about_path) %></li>
                 <li><%= link_to "Forum", "http://canadianponcho.activeboard.com/index.spark" %></li>
                 <li>
                  <% if current_user %>
                    <%= link_to "Edit Account",
-                   edit_user_registration_path %>
+                   edit_user_registration_path, class: nav_active(edit_user_registration_path) %>
                 </li>
                 <li>
-                   <%= link_to "Dashboard", current_user %>
+                   <%= link_to "Dashboard", current_user, class: nav_active(user_path(current_user)) %>
                 </li>
                 <li>
                    <%= link_to "Sign out", destroy_user_session_path,
                    method: :delete %>
                 </li>
                  <% else %>
-                   <li><%= link_to "Sign In", new_user_session_path %></li>
-                   <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                   <li><%= link_to "Sign In", new_user_session_path, class: nav_active(new_user_session_path) %></li>
+                   <li><%= link_to "Sign Up", new_user_registration_path, class: nav_active(new_user_registration_path) %></li>
                  <% end %>
               </ul>
             </div><!-- /.navbar-collapse -->
