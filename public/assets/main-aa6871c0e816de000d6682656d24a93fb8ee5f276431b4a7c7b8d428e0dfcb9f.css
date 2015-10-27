@@ -1,0 +1,435 @@
+/* bootstrap */
+
+@media(max-width:767px){
+
+  body {
+    padding: 0 1em;
+  }
+
+  .nav > li {
+    display: block;
+    float: left;
+  }
+
+  #mynav {
+    text-align: center;
+  }
+
+  #mynav li {
+    width: 100%;
+  }
+
+  body .content-buffer {
+    padding: 0;
+  }
+
+  body .bg-header {
+    margin-top: 2em;
+  }
+
+  h3.item-category,
+  ul.side-menu li {
+    text-align: center;
+  }
+
+  body .mobile-filter{
+    display: block;
+  }
+
+  .desktop-filter{
+    display: none;
+  }
+
+  p.index-info {
+    text-align: center;
+  }
+
+  h3.item-title {
+    text-align: center;
+  }
+
+  body a.item-more {
+    width: 100%;
+    margin-bottom: 0;
+    font-size: 1.5em;
+    padding: 1em;
+    text-align: center;
+    background: black;
+  }
+  body a.edit,
+  body a.resubmit {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 1em;
+  }
+
+  body dl.item {
+    text-align: center;
+    font-size: 1.5em;
+  }
+}
+
+html,
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border: 0;
+}
+
+.form-control {
+  border-radius: 0;
+}
+
+/* Navigation */
+.navbar,
+.navbar-default {
+  background: none;
+  border-radius: 0;
+  border: none;
+}
+.navbar {
+  border: 0;
+  margin-bottom: 0;
+}
+.nav a {
+  text-transform: uppercase;
+  color: #5f5f5f;
+}
+.nav a:hover {
+  color: #fff;
+}
+.nav li a:hover {
+  background: #3b3b3b;
+}
+p.member-info {
+  text-transform: uppercase;
+  font-size: 1em;
+  margin-top: .95em;
+  margin-left: 1em;
+}
+.navbar-default .nav-secondary li a {
+  color: #89181f;
+  font-size: 1.5em;
+  font-weight: 400;
+}
+.navbar-default .nav-secondary li a:hover {
+  background: red;
+  color: white;
+}
+
+.nav-active {
+    background: #cecece;
+}
+
+/* Typography */
+h1,
+h2 {
+  font-weight: 100;
+}
+.page-title {
+  font-size: 3.5em;
+  color: #ffacb0;
+}
+.secondary-title {
+  color: #fff;
+}
+p {
+  font-size: 1.75em;
+  font-weight: 200;
+  line-height: 1.75em;
+  color: gray;
+}
+p.index-info {
+  font-size: 1.1em;
+  text-transform: uppercase;
+  margin: 1em 0 0 0;
+}
+.item-bold {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #454545;
+}
+/* List */
+.mobile-filter {
+  display: none;
+}
+ul.select-make {
+  margin: 5em 0 0 0;
+  padding: 0;
+}
+ul.select-make li {
+  display: block;
+  float: left;
+}
+ul.select-make li a {
+  background: white;
+  font-size: 1.5em;
+  font-weight: 100;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1em;
+  margin-right: 1em;
+}
+ul.select-make li a:hover {
+
+  color: black;
+}
+ul.side-menu {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+ul.side-menu li {
+  font-size: 1.25em;
+  margin: 0;
+  padding: 1em;
+  transition-property: color;
+  transition-duration: 1s;
+  text-transform: uppercase;
+  font-weight: 100;
+  color: #337ad1;
+}
+ul.side-menu li:hover {
+  text-decoration: none;
+  color: red;
+}
+dl.item {
+  list-style-type: none;
+  margin: 0 0 0 1.35em;
+  padding: 0;
+}
+dl.item dt {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+dl.item dt {
+  text-transform: uppercase;
+  font-weight: normal;
+  color: black;
+}
+dl.item dd {
+  font-size: 1.25em;
+  line-height: normal;
+  color: gray;
+  margin-bottom: 1em;
+}
+ul.social-icons {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ul.social-icons li {
+  display: block;
+  float: left;
+  margin: 2em 3em;
+}
+
+/* DL::NOTES */
+dl.resub-notes {
+  background: red;
+  padding: 1em;
+}
+dl.resub-notes ol li {
+  color: white;
+  font-weight: 400;
+}
+dl.notes dt,
+dl.resub-notes dt {
+  text-transform: uppercase;
+  font-size: 1.25em;
+  margin-bottom: .75em;
+}
+dl.resub-notes dt {
+  color: yellow;
+}
+dl.notes dd,
+dl.resub-notes dd {
+  font-weight: 100;
+  font-size: 1.25em;
+}
+
+/* Filter Checkbox */
+input[type="checkbox"] {
+
+}
+input[type=submit] {
+  transition-property: background;
+  transition-duration: 1s;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: black;
+  display: inline-block;
+  font-size: 1em;
+  margin-top: 1em;
+  padding: .5em;
+  color: #fff;
+  border: 0;
+}
+input[type=submit]:hover {
+  background: #89181f;
+  color: white;
+}
+
+/* Registry Items */
+h3.item-title {
+  font-weight: 200;
+  text-transform: uppercase;
+  border: .1em solid red;
+  padding: .45em;
+  color: #222;
+  margin-bottom: 1em;
+}
+h3.body-title {
+  font-weight: 200;
+  text-transform: uppercase;
+  background: black;
+  padding: .55em;
+  color: #fff;
+  margin-bottom: 1em;
+}
+a.item-more,
+a.edit,
+a.resubmit,
+a.resubmission {
+  transition-property: background;
+  transition-duration: 1s;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: #89181f;
+  display: inline-block;
+  font-size: 1em;
+  margin-top: 1em;
+  padding: .5em;
+  color: #fff;
+}
+a.item-more:hover,
+a.edit:hover,
+a.resubmit:hover {
+  background: black;
+  color: white;
+}
+a.resubmission:hover {
+  background: black;
+  color: white;
+}
+a.edit,
+a.resubmit {
+  margin: 0 0 1em 0;
+}
+a.edit {
+  background: #188934;
+}
+a.resubmit {
+  background: red;
+}
+a.resubmission {
+  background: #337AD1;
+  color: white;
+}
+.item-category {
+  font-weight: 100;
+  text-transform: uppercase;
+  border-top: 2px black solid;
+  border-bottom: 1px dotted #ececec;
+  color: black;
+  padding: .75em;
+}
+
+/* Admin Panel */
+.admin-widget {
+  background: #ECECEC;
+  padding: 1.5em;
+}
+h1.widget {
+  text-transform: uppercase;
+  font-size: 1.75em;
+}
+a.admin-widget-link {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: .25em;
+  text-transform: uppercase;
+  background: black;
+  padding: .5em;
+  margin: 1em 0;
+  color: white;
+}
+a.admin-widget-link:hover {
+  background: red;
+}
+/* Utility Margins */
+.top {
+  margin-top: 1.5em;
+}
+.bottom {
+  margin-bottom: 1.5em;
+}
+.center-content {
+  text-align: center;
+}
+.center-content ul {
+  display: inline-block;
+}
+
+/* User Panel */
+.user-widget {
+  border: .1em solid red;
+}
+
+.resubmit-widget {
+  background: red;
+}
+.resubmit-widget p {
+  color: #fff;
+}
+.resubmit-widget a {
+  color: #6B0C22;
+}
+.approved-widget {
+  background: #deff40;
+}
+.approved-widget p {
+  color: #222;
+}
+.approved-widget a {
+  color: red;
+}
+/* Form */
+textarea.form-control {
+    height: 20em;
+}
+
+.form-control {
+  height: 3em;
+  margin-bottom: 1.5em;
+  font-size: 1.5em;
+}
+
+label {
+  font-size: 1.5em;
+  text-transform: uppercase;
+  margin-bottom: 1em;
+}
+
+/* Utility Padding */
+.content-buffer {
+  padding: 5em 0;
+}
+
+/* Background Colors */
+.bg-red {
+  background: #de262e;
+}
+.bg-gray {
+  background: #ECECEC;
+  border-bottom: 1px solid #d2d2d2;
+}
+.bg-black {
+  background: #000;
+}
+img.active-secondary {
+  opacity: 0.25;
+}
