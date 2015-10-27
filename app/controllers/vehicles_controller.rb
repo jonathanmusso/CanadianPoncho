@@ -54,6 +54,7 @@ class VehiclesController < ApplicationController
       redirect_to @vehicle
     else
       flash[:error] = "There was an error updating the Vehicle. Please try again."
+      @primary_image, @images = @vehicle.primary_and_all_vehicle_images
       render :edit
     end
   end
@@ -81,7 +82,8 @@ class VehiclesController < ApplicationController
       redirect_to @vehicle
     else
       flash[:error] = "There was an error updating the Vehicle. Please try again."
-      render :edit
+      @primary_image, @images = @vehicle.primary_and_all_vehicle_images
+      render :re_edit
     end
   end
 
