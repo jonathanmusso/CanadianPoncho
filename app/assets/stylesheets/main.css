@@ -119,6 +119,10 @@ p.member-info {
   color: white;
 }
 
+.nav-active {
+    background: #cecece;
+}
+
 /* Typography */
 h1,
 h2 {
