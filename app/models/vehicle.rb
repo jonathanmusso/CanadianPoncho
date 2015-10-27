@@ -13,6 +13,17 @@ class Vehicle < ActiveRecord::Base
   scope :filter_by_make, ->(makes) { where(make: makes) }
   scope :filter_by_year, ->(ranges) { where(year: convert_years(ranges)) }
 
+  validates :make, presence: true
+  validates :model, presence: true
+  validates :production_date, presence: true
+  validates :engine, presence: true
+  validates :transmission, presence: true
+  validates :trim, presence: true
+  validates :color, presence: true
+  validates :options, presence: true
+  validates :location, presence: true
+  validates :description, presence: true
+
   def self.makes
     ["Pontiac", "Acadian", "Beaumont"]
   end
