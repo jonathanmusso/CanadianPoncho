@@ -7,7 +7,17 @@
 <div class="col-md-9">
   <h3 class="item-title">Add Vehicle to Registry</h3>
   <p>Please follow our guidelines in the example placeholders to ensure that your vehicle is approved for the registry.</p>
+
   <%= form_for @vehicle do |f| %>
+    <% if @vehicle.errors.any? %>
+    <ul>
+      <h1>Errors:</h1>
+      <% @vehicle.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+    <% end %>
+
     <div class="form-group">
       <%= f.label :make %>
       <%= f.text_field :make, class: 'form-control', placeholder: "ex. Pontiac" %>
