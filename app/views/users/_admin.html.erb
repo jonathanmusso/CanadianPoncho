@@ -1,5 +1,4 @@
-<!-- Columns -->
-<div class="row">
+
   <!-- Dashboard -->
   <%= render 'admin_panel' %>
 
@@ -11,7 +10,7 @@
     <!-- Widgets -->
     <div class="row">
       <!-- Approval Feed -->
-      <div class="col-sm-12">
+      <div class="col-md-12">
         <div class="admin-widget">
           <h1 class="widget">Records Waiting for Approval</h1>
           <table class="table">
@@ -38,7 +37,7 @@
           <% @vehicles_approved.each do |vehicle| %>
             <div class="col-sm-4">
               <%= link_to vehicle.make, vehicle, class: "edit" %>
-              
+
               <% if current_user == @user %>
                 <dl class="notes">
                   <dt>Notes:</dd>
@@ -51,4 +50,3 @@
       </div>
     </div>
   </div>
-</div>
