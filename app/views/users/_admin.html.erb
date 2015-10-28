@@ -26,6 +26,34 @@
         </div>
         <%= link_to "View All", registry_requests_path, class: "item-more" %>
 
+        <!-- Pending -->
+        <h3 class="item-bold bottom top">Vehicles Pending Registry Approval</h3>
+        <% if @vehicles_pending.empty? %>
+          <p>You have no pending vehicles.</p>
+        <% end %>
+
+        <div class="row">
+          <% @vehicles_pending.each do |vehicle| %>
+            <div class="col-sm-3">
+              <a class="item-more"><%= vehicle.make %></a>
+            </div>
+          <% end %>
+        </div>
+
+        <!-- Resubmission -->
+        <h3 class="item-bold bottom top">Vehicles Requiring Resubmission</h3>
+        <% if @vehicles_denied.empty? %>
+          <p>You have no denied vehicles.</p>
+        <% end %>
+
+        <div class="row">
+          <% @vehicles_denied.each do |vehicle| %>
+            <div class="col-sm-4">
+              <%= link_to vehicle.make, re_edit_vehicle_path(vehicle), class: "resubmit" %>
+            </div>
+          <% end %>
+        </div>
+
         <!-- Current -->
         <h3 class="item-bold bottom top">Current Registry Vehicles</h3>
 
