@@ -82,6 +82,9 @@ body {
   border-radius: 0;
 }
 
+.brand {
+  width: 100px;
+}
 /* Navigation */
 .navbar,
 .navbar-default {
