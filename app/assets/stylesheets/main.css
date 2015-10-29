@@ -522,6 +522,15 @@ label {
     padding: 5em 0;
 }
 
+/* Utility */
+.vehicle-container {
+  min-height: 38em;
+}
+
+.note-container {
+  min-height: 15em;
+}
+
 /* Background Colors */
 .bg-red {
     background: #de262e;
