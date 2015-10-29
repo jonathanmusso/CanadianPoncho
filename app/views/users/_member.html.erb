@@ -57,7 +57,7 @@
 
     <div class="row">
       <% @vehicles_approved.each do |vehicle| %>
-        <div class="col-sm-4">
+        <div class="col-sm-4 note-container">
           <%= link_to vehicle.make, vehicle, class: "edit" %>
 
           <% if current_user == @user %>
