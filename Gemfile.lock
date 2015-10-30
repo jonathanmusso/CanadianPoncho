@@ -298,6 +298,7 @@ DEPENDENCIES
   faker
   figaro (= 1.0)
   fog
+  fog-aws
   font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
