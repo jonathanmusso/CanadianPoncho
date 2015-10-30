@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class ImageUploader < CarrierWave::Uploader::Base
-  include ::CarrierWave::Backgrounder::Delay
+  #include ::CarrierWave::Backgrounder::Delay
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
@@ -9,7 +9,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   def cache_dir
     "#{Rails.root}/tmp/uploads"
   end
-  
+
   # Choose what kind of storage to use for this uploader:
   # storage :file
   storage :fog
