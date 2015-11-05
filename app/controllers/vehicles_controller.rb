@@ -1,7 +1,5 @@
 class VehiclesController < ApplicationController
   def index
-    #raise
-
     scope = Vehicle.approved
     scope = scope.filter_by_make(params[:makes]) if params[:makes].present?
     scope = scope.filter_by_year(params[:years]) if params[:years].present?
@@ -29,7 +27,7 @@ class VehiclesController < ApplicationController
       add_vehicle_images if params[:vehicle][:vehicle_images][:image]
       create_registry_request(@vehicle)
 
-      flash[:notice] = "The Vehicle was sent to the Administrator for Appraval. You will be notified in your Dashboard if your vehicle was approved or denied."
+      flash[:notice] = "The Vehicle was sent to the Administrator for Approval. You will be notified in your Dashboard if your vehicle was approved or denied."
       redirect_to current_user
     else
       flash[:error] = "There was an error saving the Vehicle to the Registry. Please try again."

@@ -1,8 +1,12 @@
 /* bootstrap */
 @media (max-width:767px) {
 
-    body {
-        padding: 0 1em;
+    body .bg-gray {
+      padding: 1em 0;
+    }
+
+    body .brand-test {
+      height: 3.75em;
     }
 
     .nav > li {
@@ -189,8 +193,12 @@ p.member-info {
         color: white;
     }
 
+.navbar-default .nav-secondary li a.nav-active {
+  color: white;
+}
+
 .nav-active {
-    background: #cecece;
+    background: #494949;
 }
 
 /* Typography */
@@ -531,6 +539,9 @@ label {
 }
 
 /* Utility */
+.brand-test {
+  height: 5.5em;
+}
 .vehicle-container {
   min-height: 38em;
 }
@@ -547,6 +558,8 @@ label {
 .bg-gray {
     background: #ECECEC;
     border-bottom: 1px solid #d2d2d2;
+    padding: 5em 0;
+    margin-bottom: 5em;
 }
 
 .bg-black {

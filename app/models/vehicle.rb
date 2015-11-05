@@ -24,6 +24,8 @@ class Vehicle < ActiveRecord::Base
   validates :location, presence: true
   validates :description, presence: true
 
+  #validate :image_size_validation, :if => :image
+
   def self.makes
     ["Pontiac", "Acadian", "Beaumont"]
   end
@@ -60,5 +62,12 @@ class Vehicle < ActiveRecord::Base
 
   def active_registry_request
     registry_requests.order(created_at: :desc).take
+  end
+
+  private
+
+  NUM_BYTES_LIMIT = 500000
+  def image_size_validation
+    errors.add(:image, "image size cannot exceed 500KB") if image_size_validation > NUM_BYTES_LIMIT
   end
 end
