@@ -1,97 +1,11 @@
 <!-- Dashboard -->
 <% if current_user.role == 'admin' %>
-  <%= render partial: 'users/admin_panel' %>
+    <%= render partial: 'users/admin_panel' %>
 <% else %>
-  <%= render partial: 'users/member_panel' %>
+    <%= render partial: 'users/member_panel' %>
 <% end %>
 
 <div class="col-sm-9">
   <h3 class="item-title">Edit Vehicle</h3>
-  <%= form_for @vehicle do |f| %>
-    <div class="form-group">
-      <%= f.label :make %>
-      <%= f.text_field :make, class: 'form-control', placeholder: "Enter Vehicle Make" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :model %>
-      <%= f.text_field :model, class: 'form-control', placeholder: "Enter Vehicle Model" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :year %>
-      <%= f.text_field :year, class: 'form-control', placeholder: "Enter Vehicle Year" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :production_date %>
-      <%= f.text_field :production_date, class: 'form-control', placeholder: "Enter Vehicle Production Date" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :engine %>
-      <%= f.text_field :engine, class: 'form-control', placeholder: "Enter Vehicle Engine" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :transmission %>
-      <%= f.text_field :transmission, class: 'form-control', placeholder: "Enter Vehicle Transmission" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :trim %>
-      <%= f.text_field :trim, class: 'form-control', placeholder: "Enter Vehicle Trim Package" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :color %>
-      <%= f.text_field :color, class: 'form-control', placeholder: "Enter Vehicle Color" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :options %>
-      <%= f.text_field :options, class: 'form-control', placeholder: "Enter Vehicle Options" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :location %>
-      <%= f.text_field :location, class: 'form-control', placeholder: "Enter Vehicle Location" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :description %>
-      <%= f.text_area :description, class: 'form-control', placeholder: "Enter Vehicle Description" %>
-    </div>
-
-    <h3 class="item-title">Primary Gallery Image</h3>
-    <% if @primary_image %>
-      <%= image_tag @primary_image.image_url, class: "img-responsive" %>
-      <p><%= link_to "Remove Image", vehicle_image_path(@primary_image), method: :delete, class: "item-more" %></p>
-      <p><strong>Please note:</strong> Clicking the above button will delete your photo from your profile. If you want to change your primary image, simply click the green button, "Make Primary".</p>
-    <% end %>
-    <hr />
-
-    <div class="row">
-    <% @images.each do |img| %>
-      <div class="col-sm-3 top">
-        <%= image_tag img.image_url, class: "img-responsive" %>
-        <%= link_to "Remove Image", vehicle_image_path(img), method: :delete, class: "item-more bottom" %>
-        <%= link_to "Make Primary", vehicle_image_path(img), method: :patch, class: "edit" %>
-      </div>
-    <% end %>
-    </div>
-
-    <%= f.fields_for :vehicle_images do |p| %>
-
-      <div class="form-group top">
-        <%= p.label :images %>
-        <%= p.file_field :image, :multiple => true, name: "vehicle[vehicle_images][image][]" %>
-        <%= p.hidden_field :image_cache %>
-      </div>
-    <% end %>
-
-    <div class="form-group">
-      <%= f.submit "Save", class: 'item-more' %>
-    </div>
-  <% end %>
+  <%= render partial: 'form', locals: {vehicle: @vehicle, s3_direct_post: @s3_direct_post, primary_image: @primary_image, images: @images} %>
 </div>

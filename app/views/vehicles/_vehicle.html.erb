@@ -1,0 +1,66 @@
+<div class="row">
+  <!-- Body Column -->
+  <div class="col-sm-9">
+    <h3 class="item-title"><%= vehicle.user.name %>'s <%= vehicle.year %> <%= vehicle.make %></h3>
+
+    <% if policy(vehicle).edit? %>
+        <%= link_to "Edit", edit_vehicle_path(vehicle), class: 'edit' %>
+    <% end %>
+
+    <% if defined? primary_image %>
+        <%= image_tag primary_image.image, class: "img-responsive primary-image" %>
+    <% end %>
+
+    <div class="row">
+      <% vehicle.vehicle_images.each do |img| %>
+          <div class="col-sm-3 top">
+            <%= image_tag img.image, class: "img-responsive secondary-image" %>
+          </div>
+      <% end %>
+    </div>
+    <hr />
+
+    <p><%= vehicle.description %></p>
+  </div>
+  <!-- Specification Column -->
+  <div class="col-sm-3">
+    <h3 class="item-category">Specifications</h3>
+    <dl class="item">
+      <dt>Owner:</dt>
+      <dd><%= vehicle.user.name %></dd>
+      <dt>Make:</dt>
+      <dd><%= vehicle.make %></dd>
+      <dt>Model:</dt>
+      <dd><%= vehicle.model %></dd>
+      <dt>Year:</dt>
+      <dd><%= vehicle.year %></dd>
+      <dt>Production Date:</dt>
+      <dd><%= vehicle.production_date %></dd>
+      <dt>Engine:</dt>
+      <dd><%= vehicle.engine %></dd>
+      <dt>Transmission:</dt>
+      <dd><%= vehicle.transmission %></dd>
+      <dt>Trim:</dt>
+      <dd><%= vehicle.trim %></dd>
+      <dt>Color:</dt>
+      <dd><%= vehicle.color %></dd>
+      <dt>Options:</dt>
+      <dd><%= vehicle.options %></dd>
+      <dt>Location:</dt>
+      <dd><%= vehicle.location %></dd>
+    </dl>
+  </div>
+</div>
+
+<%= javascript_tag do %>
+    $(document).ready(function(){
+    var primaryImage = $(".primary-image");
+    $(".secondary-image:first").addClass("active-secondary");
+
+    $(".secondary-image").click(function(e) {
+    $(".secondary-image").removeClass("active-secondary");
+    $(this).addClass("active-secondary");
+    primaryImage.attr("src", $(e.target).attr("src"));
+    });
+    });
+<% end %>

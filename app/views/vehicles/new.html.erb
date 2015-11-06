@@ -1,90 +1,14 @@
 <% if current_user.role == 'admin' %>
-  <%= render partial: 'users/admin_panel' %>
+    <%= render partial: 'users/admin_panel' %>
 <% else %>
-  <%= render partial: 'users/member_panel' %>
+    <%= render partial: 'users/member_panel' %>
 <% end %>
 
 <div class="col-md-9">
   <h3 class="item-title">Add Vehicle to Registry</h3>
-  <p>Please follow our guidelines in the example placeholders to ensure that your vehicle is approved for the registry.</p>
 
-  <%= form_for @vehicle do |f| %>
-    <% if @vehicle.errors.any? %>
-    <ul>
-      <h1>Errors:</h1>
-      <% @vehicle.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-    <% end %>
+  <p>Please follow our guidelines in the example placeholders to ensure that your vehicle is approved for the
+    registry.</p>
 
-    <div class="form-group">
-      <%= f.label :make %>
-      <%= f.text_field :make, class: 'form-control', placeholder: "ex. Pontiac" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :model %>
-      <%= f.text_field :model, class: 'form-control', placeholder: "ex. Grande Parisienne" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :year %>
-      <%= f.text_field :year, class: 'form-control', placeholder: "ex. 1966" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :production_date %>
-      <%= f.text_field :production_date, class: 'form-control', placeholder: "ex. January 5, 1966" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :engine %>
-      <%= f.text_field :engine, class: 'form-control', placeholder: "ex. 350" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :transmission %>
-      <%= f.text_field :transmission, class: 'form-control', placeholder: "ex. 4 speed Muncie-wide ratio" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :trim %>
-      <%= f.text_field :trim, class: 'form-control', placeholder: "ex. Red" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :color %>
-      <%= f.text_field :color, class: 'form-control', placeholder: "ex. Black" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :options %>
-      <%= f.text_field :options, class: 'form-control', placeholder: "ex. Tinted glass, Strato bench seat, etc" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :location %>
-      <%= f.text_field :location, class: 'form-control', placeholder: "ex. Manitoba, Canada" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :description %>
-      <%= f.text_area :description, class: 'form-control', placeholder: "Tell us about your vehicle. How did you acquire it? What did you do to it?" %>
-    </div>
-
-    <%= f.fields_for :vehicle_images do |p| %>
-
-      <div class="form-group">
-        <%= p.label :images %>
-        <p>To add multiple files please hold shift + click or ctrl + click.</p>
-        <%= p.file_field :image, :multiple => true, name: "vehicle[vehicle_images][image][]" %>
-        <%= p.hidden_field :image_cache %>
-      </div>
-    <% end %>
-
-    <div class="form-group">
-      <%= f.submit "Save", class: 'item-more' %>
-    </div>
-  <% end %>
+  <%= render partial: 'form', locals: {vehicle: @vehicle, s3_direct_post: @s3_direct_post} %>
 </div>

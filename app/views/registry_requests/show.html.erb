@@ -1,61 +1,18 @@
 <%= render partial: 'users/admin_panel' %>
 
 <div class="col-sm-9">
-  <h3 class="item-title"><%= @registry_request.vehicle.user.name %>'s <%= @registry_request.vehicle.make %> </h3>
-  <div class="row">
-    <div class="col-sm-9">
-
-
-      <div class="row">
-        <% @registry_request.vehicle.vehicle_images.each do |img| %>
-          <div class="col-sm-3 top">
-            <%= image_tag img.image_url, class: "img-responsive" %>
-          </div>
-        <% end %>
-      </div>
-      <hr />
-
-      <p><%= @registry_request.vehicle.description %></p>
-    </div>
-
-    <div class="col-sm-3">
-      <dl class="item">
-        <dt><strong>Make:</strong></dt>
-        <dd><%= @registry_request.vehicle.make %></dd>
-        <dt><strong>Model:</strong></dt>
-        <dd><%= @registry_request.vehicle.model %></dd>
-        <dt><strong>Year:</strong></dt>
-        <dd><%= @registry_request.vehicle.year %></dd>
-        <dt><strong>Production Date:</strong></dt>
-        <dd><%= @registry_request.vehicle.production_date %></dd>
-        <dt><strong>Engine:</strong></dt>
-        <dd><%= @registry_request.vehicle.engine %></dd>
-        <dt><strong>Transmission:</strong></dt>
-        <dd><%= @registry_request.vehicle.transmission %></dd>
-        <dt><strong>Trim:</strong></dt>
-        <dd><%= @registry_request.vehicle.trim %></dd>
-        <dt><strong>Color:</strong></dt>
-        <dd><%= @registry_request.vehicle.color %></dd>
-        <dt><strong>Options:</strong></dt>
-        <dd><%= @registry_request.vehicle.options %></dd>
-        <dt><strong>Location:</strong></dt>
-        <dd><%= @registry_request.vehicle.location %></dd>
-      </dl>
-    </div>
-  </div>
+  <%= render partial: 'vehicles/vehicle', locals: {vehicle: @registry_request.vehicle } %>
   <hr/>
 
   <%= form_for @registry_request do |f| %>
-  <div class="form-group">
-    <%= f.label :notes %>
-    <%= f.text_area :notes, class: 'form-control', placeholder: "Enter notes" %>
-  </div>
+      <div class="form-group">
+        <%= f.label :notes %>
+        <%= f.text_area :notes, class: 'form-control', placeholder: "Enter notes" %>
+      </div>
 
-  <div class="form-group">
-    <%= f.submit "Approve" %>
-    <%= f.submit "Deny" %>
-  </div>
+      <div class="form-group">
+        <%= f.submit "Approve" %>
+        <%= f.submit "Deny" %>
+      </div>
   <% end %>
-
-
 </div>

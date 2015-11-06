@@ -1,0 +1,92 @@
+<%= form_for(vehicle, url: defined? action ? { action: action } : nil, html: {class: "directUpload", data: {'form-data' => (s3_direct_post.fields), 'url' => s3_direct_post.url, 'host' => URI.parse(s3_direct_post.url).host}}) do |f| %>
+    <% if vehicle.errors.any? %>
+        <ul>
+          <h1>Errors:</h1>
+          <% vehicle.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+          <% end %>
+        </ul>
+    <% end %>
+    <div class="form-group">
+      <%= f.label :make %>
+      <%= f.text_field :make, class: 'form-control', placeholder: "e.g. Pontiac" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :model %>
+      <%= f.text_field :model, class: 'form-control', placeholder: "e.g. Grande Parisienne" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :year %>
+      <%= f.text_field :year, class: 'form-control', placeholder: "e.g. 1966" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :production_date %>
+      <%= f.text_field :production_date, class: 'form-control', placeholder: "e.g. January 5, 1966" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :engine %>
+      <%= f.text_field :engine, class: 'form-control', placeholder: "e.g. 350" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :transmission %>
+      <%= f.text_field :transmission, class: 'form-control', placeholder: "e.g. 4 speed Muncie-wide ratio" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :trim %>
+      <%= f.text_field :trim, class: 'form-control', placeholder: "e.g. Red" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :color %>
+      <%= f.text_field :color, class: 'form-control', placeholder: "e.g. Black" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :options %>
+      <%= f.text_field :options, class: 'form-control', placeholder: "e.g. Tinted glass, Strato bench seat, etc" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :location %>
+      <%= f.text_field :location, class: 'form-control', placeholder: "e.g. Manitoba, Canada" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'form-control', placeholder: "Tell us about your vehicle. How did you acquire it? What did you do to it?" %>
+    </div>
+
+    <% if defined? primary_image %>
+        <h3 class="item-title">Primary Gallery Image</h3>
+        <%= image_tag primary_image.image, class: "img-responsive" %>
+        <p><%= link_to "Remove Image", vehicle_image_path(primary_image), method: :delete, class: "item-more" %></p>
+        <p><strong>Please note:</strong> Clicking the above button will delete your photo from your profile. If you want
+          to change your primary image, simply click the green button, "Make Primary".</p>
+        <hr/>
+    <% end %>
+
+    <% if vehicle.vehicle_images.length > 0 %>
+        <div class="row">
+          <% vehicle.vehicle_images.each do |img| %>
+              <div class="col-sm-3 top">
+                <%= image_tag img.image, class: "img-responsive" %>
+                <%= link_to "Remove Image", vehicle_image_path(img), method: :delete, class: "item-more bottom" %>
+                <%= link_to "Make Primary", vehicle_image_path(img), method: :patch, class: "edit" %>
+              </div>
+          <% end %>
+        </div>
+    <% end %>
+
+    <%= f.fields_for :vehicle_images do |p| %>
+        <div class="form-group top">
+          <%= p.label :images %>
+          <p>To add multiple files please hold shift + click or ctrl + click.</p>
+          <%= p.file_field :image, :multiple => true, name: "vehicle[vehicle_images][image][]" %>
+        </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.submit "Save", class: 'item-more' %>
+    </div>
+<% end %>
+<%= javascript_tag do %>
+    $(document).ready(function(){
+    directUploadInit();
+    });
+<% end %>
