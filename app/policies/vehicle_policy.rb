@@ -1,8 +1,9 @@
 class VehiclePolicy < ApplicationPolicy
-  def re_edit?
-    true
-  end
-  def resubmit?
-    true
-  end
+    def re_edit?
+        update?
+    end
+
+    def resubmit?
+        update?
+    end
 end

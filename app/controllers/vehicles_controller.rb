@@ -1,6 +1,7 @@
 class VehiclesController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show]
-    before_action :find_vehicle, except: [:index, :new,:create]
+    before_action :find_vehicle, except: [:index, :new, :create]
+    before_action :authorize_vehicle, except: [:index, :new, :create]
     before_action :set_s3_direct_post, only: [:new, :edit, :create, :update, :re_edit]
 
     def index
@@ -102,4 +103,7 @@ class VehiclesController < ApplicationController
         #"uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
     end
 
+    def authorize_vehicle
+        authorize @vehicle
+    end
 end
