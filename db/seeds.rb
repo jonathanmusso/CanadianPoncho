@@ -50,16 +50,6 @@ admin = User.new(
 admin.skip_confirmation!
 admin.save!
 
-# Create a Moderator
-moderator = User.new(
-    name: 'Moderator User',
-    email: 'moderator@example.com',
-    password: 'helloworld',
-    role: 'moderator'
-)
-moderator.skip_confirmation!
-moderator.save!
-
 puts "Seed finished."
 puts "#{User.count} users created."
 puts "#{Vehicle.count} vehicles created."
