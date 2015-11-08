@@ -41,10 +41,10 @@ class VehiclesController < ApplicationController
         if @vehicle.update_attributes(vehicle_params)
             add_vehicle_images
 
-            flash[:notice] = "The Vehicle entry was updated."
+            flash[:notice] = 'The Vehicle entry was updated.'
             redirect_to @vehicle
         else
-            flash[:error] = "There was an error updating the Vehicle. Please try again."
+            flash[:error] = 'There was an error updating the Vehicle. Please try again.'
             render :edit
         end
     end
@@ -62,10 +62,10 @@ class VehiclesController < ApplicationController
                 create_registry_request(@vehicle)
             end
 
-            flash[:notice] = "The Vehicle entry was updated and sent to the Administrator. Please wait for Approval."
+            flash[:notice] = 'The Vehicle entry was updated and sent to the Administrator. Please wait for Approval.'
             redirect_to @vehicle
         else
-            flash[:error] = "There was an error updating the Vehicle. Please try again."
+            flash[:error] = 'There was an error updating the Vehicle. Please try again.'
             render :re_edit
         end
     end

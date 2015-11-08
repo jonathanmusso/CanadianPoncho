@@ -11,12 +11,12 @@ class RegistryRequestsController < ApplicationController
     end
 
     def update
-        if params[:commit] == "Approve"
+        if params[:commit] == 'Approve'
             @registry_request.approved_at = Time.now
-            flash_message = "The vehicle was approved for the Registry."
-        elsif params[:commit] == "Deny"
+            flash_message = 'The vehicle was approved for the Registry.'
+        elsif params[:commit] == 'Deny'
             @registry_request.denied_at = Time.now
-            flash_message = "The vehicle was denied."
+            flash_message = 'The vehicle was denied.'
         end
 
         @registry_request.notes = params[:registry_request][:notes]
@@ -25,7 +25,7 @@ class RegistryRequestsController < ApplicationController
         if @registry_request.save
             flash[:notice] = flash_message
         else
-            flash[:error] = "There was an error approving the ehicle. Please try again."
+            flash[:error] = 'There was an error approving the vehicle. Please try again.'
         end
 
         redirect_to registry_requests_path
