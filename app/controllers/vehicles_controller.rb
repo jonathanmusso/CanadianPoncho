@@ -24,7 +24,7 @@ class VehiclesController < ApplicationController
         @vehicle.user = current_user
 
         if @vehicle.save
-            add_vehicle_images if params[:vehicle][:vehicle_images][:image]
+            add_vehicle_images
             create_registry_request(@vehicle)
 
             flash[:notice] = 'The Vehicle was sent to the Administrator for approval. You will be notified in your Dashboard if your vehicle was approved or denied.'
@@ -40,7 +40,7 @@ class VehiclesController < ApplicationController
 
     def update
         if @vehicle.update_attributes(vehicle_params)
-            add_vehicle_images if params[:vehicle][:vehicle_images][:image]
+            add_vehicle_images
 
             flash[:notice] = "The Vehicle entry was updated."
             redirect_to @vehicle
@@ -56,7 +56,7 @@ class VehiclesController < ApplicationController
     def resubmit
         #update and new request
         if @vehicle.update_attributes(vehicle_params)
-            add_vehicle_images if params[:vehicle][:vehicle_images][:image]
+            add_vehicle_images
 
             Vehicle.transaction do
                 @vehicle.active_registry_request.archive
@@ -82,6 +82,8 @@ class VehiclesController < ApplicationController
     end
 
     def add_vehicle_images
+        return unless params[:vehicle][:vehicle_images] && params[:vehicle][:vehicle_images].length > 0
+
         params[:vehicle][:vehicle_images][:image].each_with_index do |img, i|
             image = @vehicle.vehicle_images.build(image: img)
             image.primary = true if i == 0
