@@ -13,7 +13,6 @@ class VehiclesController < ApplicationController
     end
 
     def show
-        @primary_image, @images = @vehicle.primary_and_all_vehicle_images
     end
 
     def new
@@ -37,7 +36,6 @@ class VehiclesController < ApplicationController
     end
 
     def edit
-        @primary_image, @images = @vehicle.primary_and_all_vehicle_images
     end
 
     def update
@@ -48,13 +46,11 @@ class VehiclesController < ApplicationController
             redirect_to @vehicle
         else
             flash[:error] = "There was an error updating the Vehicle. Please try again."
-            @primary_image, @images = @vehicle.primary_and_all_vehicle_images
             render :edit
         end
     end
 
     def re_edit
-        @primary_image, @images = @vehicle.primary_and_all_vehicle_images
     end
 
     def resubmit
@@ -71,7 +67,6 @@ class VehiclesController < ApplicationController
             redirect_to @vehicle
         else
             flash[:error] = "There was an error updating the Vehicle. Please try again."
-            @primary_image, @images = @vehicle.primary_and_all_vehicle_images
             render :re_edit
         end
     end

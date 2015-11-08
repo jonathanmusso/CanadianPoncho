@@ -11,7 +11,5 @@
     <dt>Notes:</dt>
     <dd><%= create_list(@vehicle.vehicle_request_notes) %></dd>
   </dl>
-  <%= render partial: 'form', locals: {vehicle: @vehicle, s3_direct_post: @s3_direct_post, primary_image: @primary_image, images: @images, action: 'resubmit'} %>
-
-  <% #form_for @vehicle, as: :vehicle,  do |f| %>
+  <%= render partial: 'form', locals: {vehicle: @vehicle, s3_direct_post: @s3_direct_post, action: 'resubmit'} %>
 </div>

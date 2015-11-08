@@ -37,13 +37,8 @@ class Vehicle < ActiveRecord::Base
     end
   end
 
-  def primary_and_all_vehicle_images
-    primary = primary_image
-    [primary, vehicle_images]
-  end
-
   def primary_image
-    vehicle_images.find(primary: true)
+    vehicle_images.find { |e| e.primary }
   end
 
   def vehicle_request_notes

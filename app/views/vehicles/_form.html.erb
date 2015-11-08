@@ -52,10 +52,10 @@
       <%= f.text_area :description, class: 'form-control', placeholder: "Tell us about your vehicle. How did you acquire it? What did you do to it?" %>
     </div>
 
-    <% if defined? primary_image %>
+    <% if vehicle.primary_image %>
         <h3 class="item-title">Primary Gallery Image</h3>
-        <%= image_tag primary_image.image, class: "img-responsive" %>
-        <p><%= link_to "Remove Image", vehicle_image_path(primary_image), method: :delete, class: "item-more" %></p>
+        <%= image_tag vehicle.primary_image.image, class: "img-responsive" %>
+        <p><%= link_to "Remove Image", vehicle_image_path(vehicle.primary_image), method: :delete, class: "item-more" %></p>
         <p><strong>Please note:</strong> Clicking the above button will delete your photo from your profile. If you want
           to change your primary image, simply click the green button, "Make Primary".</p>
         <hr/>
