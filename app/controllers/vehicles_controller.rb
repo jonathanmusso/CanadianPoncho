@@ -16,12 +16,11 @@ class VehiclesController < ApplicationController
     end
 
     def new
-        @vehicle = Vehicle.new
+        @vehicle = current_user.vehicles.build
     end
 
     def create
-        @vehicle = Vehicle.new(vehicle_params)
-        @vehicle.user = current_user
+        @vehicle = current_user.vehicles.build(vehicle_params)
 
         if @vehicle.save
             add_vehicle_images
