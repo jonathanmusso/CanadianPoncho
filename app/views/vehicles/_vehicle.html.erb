@@ -7,7 +7,7 @@
         <%= link_to "Edit", edit_vehicle_path(vehicle), class: 'edit' %>
     <% end %>
 
-    <% if defined? vehicle.primary_image %>
+    <% if vehicle.primary_image %>
         <%= image_tag vehicle.primary_image.image, class: "img-responsive primary-image" %>
     <% end %>
 
