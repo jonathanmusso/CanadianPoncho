@@ -1,4 +1,12 @@
-<%= form_for(vehicle, url: defined? action ? { action: action } : nil, html: {class: "directUpload", data: {'form-data' => (s3_direct_post.fields), 'url' => s3_direct_post.url, 'host' => URI.parse(s3_direct_post.url).host}}) do |f| %>
+<%
+   if defined? action
+       url_options = {action: action}
+   else
+       url_options = nil
+   end
+   puts url_options
+%>
+<%= form_for(vehicle, url: url_options, html: {class: "directUpload", data: {'form-data' => (s3_direct_post.fields), 'url' => s3_direct_post.url, 'host' => URI.parse(s3_direct_post.url).host}}) do |f| %>
     <% if vehicle.errors.any? %>
         <ul>
           <h1>Errors:</h1>
