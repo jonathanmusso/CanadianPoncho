@@ -2,7 +2,7 @@ class VehiclesController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show]
     before_action :find_vehicle, except: [:index, :new, :create]
     before_action :authorize_vehicle, except: [:index, :new, :create]
-    before_action :set_s3_direct_post, only: [:new, :edit, :create, :update, :re_edit]
+    before_action :set_s3_direct_post, only: [:new, :edit, :update, :re_edit]
 
     def index
         scope = Vehicle.approved
