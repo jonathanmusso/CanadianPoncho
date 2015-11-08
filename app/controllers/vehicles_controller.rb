@@ -95,8 +95,7 @@ class VehiclesController < ApplicationController
     end
 
     def set_s3_direct_post
-        @s3_direct_post = AWS_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
-        #"uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+        @s3_direct_post = AWS_BUCKET.presigned_post(key: "uploads/users/#{current_user.id}/vehicle_images/#{SecureRandom.uuid}${filename}", success_action_status: '201', acl: 'public-read')
     end
 
     def authorize_vehicle
