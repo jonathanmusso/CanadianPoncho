@@ -1,10 +1,10 @@
 class RegistryRequestsController < ApplicationController
     before_action :authenticate_user!
     before_action :find_registry_request, except: [:index]
-    before_action :authorize_registry_request
 
     def index
         @registry_requests = RegistryRequest.pending
+        authorize @registry_requests
     end
 
     def show
@@ -34,9 +34,6 @@ class RegistryRequestsController < ApplicationController
     private
     def find_registry_request
         @registry_request = RegistryRequest.find(params.require(:id))
-    end
-
-    def authorize_registry_request
         authorize @registry_request
     end
 end
