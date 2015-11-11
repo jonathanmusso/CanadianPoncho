@@ -1,31 +1,29 @@
-<div class="row">
-  <!-- Body Column -->
-  <div class="col-sm-9">
-    <h3 class="item-title"><%= vehicle.user.name %>'s <%= vehicle.year %> <%= vehicle.make %></h3>
+<div id="secondary-wrapper">
+  <div id="primary-content">
+    <h2><%= vehicle.user.name %>'s <%= vehicle.year %> <%= vehicle.make %></h2>
 
     <% if policy(vehicle).edit? %>
         <%= link_to "Edit", edit_vehicle_path(vehicle), class: 'edit' %>
     <% end %>
 
     <% if vehicle.primary_image %>
-        <%= image_tag vehicle.primary_image.image, class: "img-responsive primary-image" %>
+        <%= image_tag vehicle.primary_image.image, class: "primary-image" %>
     <% end %>
 
-    <div class="row">
+    <div id="flex-thumbnails">
       <% vehicle.vehicle_images.each do |img| %>
-          <div class="col-sm-3 top">
-            <%= image_tag img.image, class: "img-responsive secondary-image" %>
-          </div>
+            <%= image_tag img.image, class: "secondary-image thumbnail" %>
       <% end %>
     </div>
+
     <hr />
 
     <p><%= vehicle.description %></p>
   </div>
-  <!-- Specification Column -->
-  <div class="col-sm-3">
-    <h3 class="item-category">Specifications</h3>
-    <dl class="item">
+
+  <div id="secondary-content">
+    <h2 class="specifications">Specifications</h2>
+    <dl>
       <dt>Owner:</dt>
       <dd><%= vehicle.user.name %></dd>
       <dt>Make:</dt>
@@ -51,7 +49,6 @@
     </dl>
   </div>
 </div>
-
 <%= javascript_tag do %>
     $(document).ready(function(){
     var primaryImage = $(".primary-image");

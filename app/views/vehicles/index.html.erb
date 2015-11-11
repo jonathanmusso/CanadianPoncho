@@ -1,79 +1,42 @@
-<div class="row">
-  <!-- Side Column -->
-  <div class="col-sm-3">
+<div id="secondary-wrapper">
+  <section class="filter">
+    <a href="#" class="toggleNav" data-target-id="filter"><i class="fa fa-check-square-o"></i> Vehicle Filter</a>
 
-  <%= form_tag filter_vehicles_path do |f| %>
-    <div class="mobile-filter">
-      <h3 class="item-category" data-toggle="collapse" data-target="#make-filter">Make: </h3>
-      <ul id="make-filter" class="side-menu collapse out make-filter">
+    <nav id="filter" class="flex-nav">
+      <%= form_tag filter_vehicles_path do |f| %>
+          <h1>Make: </h1>
+          <ul>
+            <% Vehicle.makes.each do |make| %>
+                <li>
+                  <%= display_chosen_check_box_tag(make, params[:makes], "makes[]") -%>
+                  <%= make -%>
+                </li>
+            <% end %>
+          </ul>
 
-          <% Vehicle.makes.each do |make| %>
-              <li>
-                <%= display_chosen_check_box_tag(make, params[:makes], "makes[]") -%>
-                <%= make -%>
-              </li>
-          <% end %>
-      </ul>
-    </div>
+          <h1>Year: </h1>
+          <ul>
+              <% Vehicle.year_ranges.each do |range| %>
+                  <li>
+                    <%= display_chosen_check_box_tag(range, params[:years], "years[]") -%>
+                    <%= range -%>
+                  </li>
+              <% end %>
 
-    <div class="desktop-filter">
-      <h3 class="item-category">Make: </h3>
-      <ul class="side-menu">
-          <% Vehicle.makes.each do |make| %>
-              <li>
-                <%= display_chosen_check_box_tag(make, params[:makes], "makes[]") -%>
-                <%= make -%>
-              </li>
-          <% end %>
-      </ul>
-    </div>
+              <li><%= submit_tag "Filter" %></li>
+          </ul>
+      <% end %>
+    </nav>
+  </section>
 
-    <div class="mobile-filter">
-      <h3 class="item-category" data-toggle="collapse" data-target="#year-filter">Year: </h3>
-      <ul id="year-filter" class="side-menu collapse out">
-          <% Vehicle.year_ranges.each do |range| %>
-              <li>
-                <%= display_chosen_check_box_tag(range, params[:years], "years[]") -%>
-                <%= range -%>
-              </li>
-          <% end %>
-
-          <li><%= submit_tag "Filter" %></li>
-
-      </ul>
-    </div>
-
-    <div class="desktop-filter">
-      <h3 class="item-category">Year: </h3>
-      <ul class="side-menu">
-          <% Vehicle.year_ranges.each do |range| %>
-              <li>
-                <%= display_chosen_check_box_tag(range, params[:years], "years[]") -%>
-                <%= range -%>
-              </li>
-          <% end %>
-
-          <li><%= submit_tag "Filter" %></li>
-        <% end %>
-      </ul>
-    </div>
-
-  </div>
-
-  <!-- Body Column -->
-  <div class="col-sm-9">
-
-      <div class="row">
-        <div class="clearfix">
-          <% @vehicles.each do |vehicle| %>
-            <div class="col-sm-6 bottom vehicle-container">
-              <h3 class="item-title"><%= link_to "#{vehicle.make} #{vehicle.model}", vehicle %></h3>
-                <%= image_tag(vehicle.primary_image.image, class: "img-responsive") if vehicle.primary_image %>
-                <p class="index-info"><%= vehicle.user.name %>'s <%= vehicle.year %> <%= vehicle.make %> <%= vehicle.model %></p>
-                <%= link_to "View Details", vehicle, class: "item-more" %>
-            </div>
-          <% end %>
-        </div>
+  <section class="content">
+    <% @vehicles.each do |vehicle| %>
+      <div>
+        <h2><%= link_to "#{vehicle.make} #{vehicle.model}", vehicle %></h2>
+          <%= image_tag(vehicle.primary_image.image, class: "img-responsive") if vehicle.primary_image %>
+          <p><%= vehicle.user.name %>'s <%= vehicle.year %> <%= vehicle.make %> <%= vehicle.model %></p>
+          <%= link_to "View Details", vehicle, class: "details" %>
       </div>
-  </div>
+    <% end %>
+  </section>
 </div>
