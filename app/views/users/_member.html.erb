@@ -1,15 +1,15 @@
-  <!-- Dashboard -->
-  <% if current_user %>
-    <%= render 'member_panel' %>
-  <% else %>
-    <div class="col-sm-3">
-      <p>Guest panel </p>
-    </div>
-  <% end %>
+<div id="secondary-wrapper">
 
-  <!-- Body -->
-  <div class="col-md-9">
-    <h3 class="item-title">
+  <div id="dash-menu">
+    <% if current_user %>
+      <%= render 'member_panel' %>
+    <% else %>
+        <p>Guest panel </p>
+    <% end %>
+  </div>
+
+  <div id="dash-content">
+    <h3 class="dashboard-title">
       <% if current_user == @user %>
         Welcome, <%= @user.username %>.
       <% else %>
@@ -20,55 +20,40 @@
     <% if current_user == @user %>
       <p>Here you have access to do certain things, such as <%= link_to "submit", new_vehicle_path %> your vehicle to the Canadian Poncho Registry. Please view the menu on the left for your available options.</p>
 
-      <!-- Pending -->
-      <h3 class="item-bold bottom top">Vehicles Pending Registry Approval</h3>
+      <h3 class="vehicle-state">Vehicles Pending Registry Approval</h3>
       <% if @vehicles_pending.empty? %>
         <p>You have no pending vehicles.</p>
       <% end %>
 
-      <div class="row">
-        <% @vehicles_pending.each do |vehicle| %>
-          <div class="col-sm-3">
-            <a class="item-more"><%= vehicle.make %></a>
-          </div>
-        <% end %>
-      </div>
+      <% @vehicles_pending.each do |vehicle| %>
+          <a class="item-more"><%= vehicle.make %></a>
+      <% end %>
 
-      <!-- Resubmission -->
-      <h3 class="item-bold bottom top">Vehicles Requiring Resubmission</h3>
+      <h3 class="vehicle-state">Vehicles Requiring Resubmission</h3>
       <% if @vehicles_denied.empty? %>
         <p>You have no denied vehicles.</p>
       <% end %>
 
-      <div class="row">
-        <% @vehicles_denied.each do |vehicle| %>
-          <div class="col-sm-4">
-            <%= link_to vehicle.make, re_edit_vehicle_path(vehicle), class: "resubmit" %>
-          </div>
-        <% end %>
-      </div>
+      <% @vehicles_denied.each do |vehicle| %>
+          <%= link_to vehicle.make, re_edit_vehicle_path(vehicle), class: "resubmit" %>
+      <% end %>
     <% end %>
 
-    <!-- Current -->
-    <h3 class="item-bold bottom top">Current Registry Vehicles</h3>
+    <h3 class="vehicle-state">Current Registry Vehicles</h3>
     <% if @vehicles_approved.empty? %>
       <p>You have no vehicles in the Registry.</p>
     <% end %>
 
-    <div class="row">
-      <% @vehicles_approved.each do |vehicle| %>
-        <div class="col-sm-4 note-container">
-          <%= link_to vehicle.make, vehicle, class: "edit" %>
+    <% @vehicles_approved.each do |vehicle| %>
+        <%= link_to vehicle.make, vehicle, class: "edit" %>
 
-          <% if current_user == @user %>
-            <dl class="notes">
-              <dt>Notes:</dd>
-              <dd><%= vehicle.vehicle_request_approved_notes %></dt>
-            </dl>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-    </ul>
-
+        <% if current_user == @user %>
+          <dl class="notes">
+            <dt>Notes:</dd>
+            <dd><%= vehicle.vehicle_request_approved_notes %></dt>
+          </dl>
+        <% end %>
+    <% end %>
   </div>
+
+</div>
