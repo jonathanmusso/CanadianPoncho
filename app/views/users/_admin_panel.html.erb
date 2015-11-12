@@ -1,15 +1,17 @@
-<!-- Dashboard -->
-  <div class="col-md-3">
-    <!-- Dashboard Menu -->
-    <h3 class="item-category">Dashboard</h3>
-    <ul class="side-menu">
+<section class="filter">
+  <h2 class="dash-heading">Dashboard</h2>
+  <a href="#" class="toggleNav" data-target-id="dash-nav"><i class="fa fa-check-square-o"></i> Dashboard</a>
+
+  <nav id="dash-nav" class="flex-nav">
+    <ul>
       <li><%= link_to "Dashboard", current_user %></li>
       <li><%= link_to "Add Vehicle to Registry", new_vehicle_path %></li>
       <li><%= link_to "Edit my account", edit_user_registration_path %></li>
     </ul>
-    <!-- Registry Menu -->
-    <h3 class="item-category">Registry</h3>
-    <ul class="side-menu">
+
+    <h2 class="dash-heading">Registry</h2>
+    <ul>
       <li><%= link_to "Approvals", registry_requests_path %></li>
     </ul>
-  </div>
+  </nav>
+</section>
