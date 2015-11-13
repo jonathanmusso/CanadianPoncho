@@ -1,19 +1,20 @@
-<%= render partial: 'users/admin_panel' %>
+<div id="secondary-wrapper">
 
-<div class="col-md-9">
-  <h3 class="item-title">Requests Pending Approval</h3>
-  <div class="row">
+  <div id="dash-menu">
+    <%= render partial: 'users/admin_panel' %>
+  </div>
+
+  <div id="dash-content">
+    <h3 class="dashboard-title">Requests Pending Approval</h3>
+
     <% @registry_requests.each do |request| %>
-      <div class="col-sm-4">
-        <div class="admin-widget">
           <h2><%= request.vehicle.make %></h2>
           <ul>
             <li><%= request.vehicle.model %></li>
             <li><%= request.vehicle.user.name %></li>
           </ul>
-        </div>
         <%= link_to "Show", request, class: "item-more" %>
-      </div>
     <% end %>
   </div>
+
 </div>

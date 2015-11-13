@@ -1,14 +1,20 @@
-<% if current_user.role == 'admin' %>
-    <%= render partial: 'users/admin_panel' %>
-<% else %>
-    <%= render partial: 'users/member_panel' %>
-<% end %>
+<div id="secondary-wrapper">
 
-<div class="col-md-9">
-  <h3 class="item-title">Add Vehicle to Registry</h3>
+  <div id="dash-menu">
+    <% if current_user.role == 'admin' %>
+        <%= render partial: 'users/admin_panel' %>
+    <% else %>
+        <%= render partial: 'users/member_panel' %>
+    <% end %>
+  </div>
 
-  <p>Please follow our guidelines in the example placeholders to ensure that your vehicle is approved for the
-    registry.</p>
+  <div id="dash-content">
+    <h3 class="dashboard-title">Add Vehicle to Registry</h3>
 
-  <%= render partial: 'form', locals: {vehicle: @vehicle, s3_direct_post: @s3_direct_post} %>
+    <p>Please follow our guidelines in the example placeholders to ensure that your vehicle is approved for the
+      registry.</p>
+
+    <%= render partial: 'form', locals: {vehicle: @vehicle, s3_direct_post: @s3_direct_post} %>
+  </div>
+
 </div>
