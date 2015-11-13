@@ -57,6 +57,7 @@ hr                   { height: 0; border: 0; border-top: 1px solid #eeeeee; }
 /* IDS */
 #brand { width: 33px; height: 65px; }
 #primary-content { margin-top: .5em; }
+#devise { margin-top: .5em; }
 
 /* ANCHORS */
 .flex-header a,
@@ -80,6 +81,7 @@ a.details 				{ text-decoration: none; text-transform: uppercase; text-align: ri
 .flex-header     { background: #f5f5f5; flex-direction: column; display: flex; }
 .toggleNav 	     { display: block; }
 .flex-nav ul     { display: none; }
+
 
 /* FLEX ITEMS */
 .thumbnail        { flex-basis: 33.333333%; padding: .3em; }
@@ -118,12 +120,18 @@ footer p 			     { font-size: .75em;}
 img            { width: 100%; }
 .primary-image { margin-bottom: .35em; }
 
+/* Form */
+form  { padding: 0 .75em; }
+form a { text-decoration: none; display: block; margin-bottom: .5em; }
+input { display: block; width: 100%; height: 4em; margin: 1em 0; padding: 1em; font-size: .5em; }
+
 @media all and (min-width: 736px) {
 
 	/* IDS */
 	#primary-wrapper  { width: 90%; margin: auto; padding: 1.5em 0; }
 	#menu 						{ flex: auto; }
 	.bg 							{ background: #f5f5f5; border-bottom: 1px solid rgba(204, 204, 204, 0.16); width: 100%; margin-bottom: 2.5em; }
+	#devise 				  { width: 50%; margin: auto; }
 
   /* FLEX CONTAINERS */
   #secondary-wrapper { display: flex; width: 90%; margin: auto; }
@@ -172,5 +180,8 @@ img            { width: 100%; }
 
   /* PARAGRAPHS */
   section div p { font-size: .75em; text-transform: uppercase; padding: 0; margin: 1em 0; color: #454545; }
+
+	/* Form */
+	form  { padding: 0; }
 
 }
