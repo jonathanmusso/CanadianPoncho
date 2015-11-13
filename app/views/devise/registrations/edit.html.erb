@@ -1,12 +1,15 @@
-<!-- Dashboard -->
-  <% if current_user.role == 'admin' %>
-    <%= render partial: 'users/admin_panel' %>
-  <% else %>
-    <%= render partial: 'users/member_panel' %>
-  <% end %>
+<div id="secondary-wrapper">
 
-  <div class="col-md-9">
-    <h3 class="item-title">Edit Account Details</h3>
+  <div id="dash-menu">
+    <% if current_user.role == 'admin' %>
+      <%= render partial: 'users/admin_panel' %>
+    <% else %>
+      <%= render partial: 'users/member_panel' %>
+    <% end %>
+  </div>
+
+  <div id="dash-content">
+    <h3 class="dashboard-title">Edit Account Details</h3>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :patch }) do |f| %>
       <%= devise_error_messages! %>
 
@@ -41,23 +44,22 @@
       <div class="form-group">
         <%= f.submit "Update", class: 'item-more' %>
       </div>
-    <% end %>
+      <% end %>
 
-    <h3 class="item-title">Edit personal information</h3>
-    <%= form_for(current_user) do |f| %>
+      <h3  class="dashboard-title">Edit personal information</h3>
+      <%= form_for(current_user) do |f| %>
 
-      <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control', placeholder: "Enter name", autofocus: true %>
-      </div>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'form-control', placeholder: "Enter name", autofocus: true %>
+        </div>
 
-      <div class="form-group">
-        <%= f.submit "Update", class: 'item-more' %>
-      </div>
-    <% end %>
+        <div class="form-group">
+          <%= f.submit "Update", class: 'item-more' %>
+        </div>
+      <% end %>
 
-    <h3 class="item-title">Cancel my account</h3>
-    <div class="form-group">
-        <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'item-more' %></p>
-    </div>
+      <h3  class="dashboard-title">Cancel my account</h3>
+      <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'item-more' %></p>
   </div>
+</div>
