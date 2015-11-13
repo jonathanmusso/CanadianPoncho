@@ -1,18 +1,20 @@
-<%= render partial: 'users/admin_panel' %>
+<div id="secondary-wrapper">
 
-<div class="col-sm-9">
-  <%= render partial: 'vehicles/vehicle', locals: {vehicle: @registry_request.vehicle } %>
-  <hr/>
+  <div id="dash-menu">
+    <%= render partial: 'users/admin_panel' %>
+  </div>
 
-  <%= form_for @registry_request do |f| %>
-      <div class="form-group">
-        <%= f.label :notes %>
-        <%= f.text_area :notes, class: 'form-control', placeholder: "Enter notes" %>
-      </div>
+  <div id="dash-content">
+    <%= render partial: 'vehicles/vehicle', locals: {vehicle: @registry_request.vehicle } %>
+    <hr/>
 
-      <div class="form-group">
-        <%= f.submit "Approve" %>
-        <%= f.submit "Deny" %>
-      </div>
-  <% end %>
+    <%= form_for @registry_request do |f| %>
+          <%= f.label :notes %>
+          <%= f.text_area :notes, class: 'form-control', placeholder: "Enter notes" %>
+
+          <%= f.submit "Approve" %>
+          <%= f.submit "Deny" %>
+    <% end %>
+  </div>
+  
 </div>

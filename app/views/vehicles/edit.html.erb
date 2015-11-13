@@ -1,11 +1,16 @@
-<!-- Dashboard -->
-<% if current_user.role == 'admin' %>
-    <%= render partial: 'users/admin_panel' %>
-<% else %>
-    <%= render partial: 'users/member_panel' %>
-<% end %>
+<div id="secondary-wrapper">
 
-<div class="col-sm-9">
-  <h3 class="item-title">Edit Vehicle</h3>
-  <%= render partial: 'form', locals: {vehicle: @vehicle, s3_direct_post: @s3_direct_post} %>
+  <div id="dash-menu">
+    <% if current_user.role == 'admin' %>
+        <%= render partial: 'users/admin_panel' %>
+    <% else %>
+        <%= render partial: 'users/member_panel' %>
+    <% end %>
+  </div>
+
+  <div id="dash-content">
+    <h3 class="dashboard-title">Edit Vehicle</h3>
+    <%= render partial: 'form', locals: {vehicle: @vehicle, s3_direct_post: @s3_direct_post} %>
+  </div>
+
 </div>

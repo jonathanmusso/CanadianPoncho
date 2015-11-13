@@ -6,15 +6,18 @@
 
   <div id="dash-content">
     <h3 class="dashboard-title">Requests Pending Approval</h3>
-
-    <% @registry_requests.each do |request| %>
-          <h2><%= request.vehicle.make %></h2>
-          <ul>
-            <li><%= request.vehicle.model %></li>
-            <li><%= request.vehicle.user.name %></li>
-          </ul>
-        <%= link_to "Show", request, class: "item-more" %>
-    <% end %>
+    <div class="vehicle-card">
+      <% @registry_requests.each do |request| %>
+        <div class="state-card">
+              <h2><%= request.vehicle.make %></h2>
+              <ul>
+                <li><%= request.vehicle.model %></li>
+                <li><%= request.vehicle.user.name %></li>
+              </ul>
+            <%= link_to "Show", request, class: "item-more" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
 </div>

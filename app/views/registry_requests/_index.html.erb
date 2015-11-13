@@ -1,7 +1,11 @@
-<tr>
-  <td><%= request.vehicle.make %></td>
-  <td><%= request.vehicle.model %></td>
-  <td><%= request.vehicle.year %></td>
-  <td><%= request.vehicle.user.name %></td>
-  <td><%= link_to "Show", request %></td>
-</tr>
+<dl class="state-card">
+  <dt>Make</dt>
+  <dd><%= request.vehicle.make %></dd>
+  <dt>Model</dt>
+  <dd><%= request.vehicle.model %></dd>
+  <dt>Year</dt>
+  <dd><%= request.vehicle.year %></dd>
+  <dt>User</dt>
+  <dd><%= request.vehicle.user.name %></dd>
+  <dd><%= link_to "Show", request, class: "more" %></dd>
+</dl>

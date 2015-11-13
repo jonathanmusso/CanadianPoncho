@@ -55,7 +55,7 @@ footer 							 { padding: .75em .5em; }
 hr                   { height: 0; border: 0; border-top: 1px solid #eeeeee; }
 
 /* IDS */
-#brand { width: 33px; height: 65px; }
+#brand { width: 33px; height: 65px; margin: 1em auto; }
 #primary-content { margin-top: .5em; }
 #devise { margin-top: .5em; }
 
@@ -71,22 +71,27 @@ a.details 				{ text-decoration: none; text-transform: uppercase; text-align: ri
 
 .content div h2 a { text-decoration: none; color: white; }
 
-.edit             { text-decoration: none; text-transform: uppercase; background: #188934; color: white;
+.edit 						{ background: #188934; }
+.more 						{ background: #89181f;; }
+.edit,
+.more             { text-decoration: none; text-transform: uppercase; color: white;
                     display: block; padding: .25em .75em; margin-bottom: .5em; }
 
 .filter 					{ margin-bottom: .5em; }
 
 /* FLEX CONTAINER */
 #flex-thumbnails { display: flex; flex-wrap: wrap; }
+.vehicle-card 	 { display: flex; flex-wrap: wrap; padding: .25em; }
 .flex-header     { background: #f5f5f5; flex-direction: column; display: flex; }
 .toggleNav 	     { display: block; }
 .flex-nav ul     { display: none; }
 
 
 /* FLEX ITEMS */
-.thumbnail        { flex-basis: 33.333333%; padding: .3em; }
-.thumbnail:nth-child(3n+1) { padding-left: 0; }
-.thumbnail:nth-child(3n+3) { padding-right: 0; }
+.vehicle-card .state-card 	 { flex-basis: 50%; font-size: .75em; padding: .25em; }
+.thumbnail        						 { flex-basis: calc(33.333333% - .6em); margin: .3em; }
+.thumbnail:nth-child(3n+1) 		 { margin-left: 0; }
+.thumbnail:nth-child(3n+3) 		 { margin-right: 0; }
 
 .flex-nav.open ul { display: flex; flex-direction: column; }
 .flex-nav.open h1 { display: block; }
@@ -103,8 +108,8 @@ section div { margin-bottom: .5em; }
 .dashboard-title    { background: red; padding: .75em; margin-bottom: .5em; text-transform: uppercase; color: white; }
 #dash-menu h2       { display: none; }
 .specifications,
-.vehicle-state,
-.request-widget     { text-transform: uppercase; text-align: center; display: block; background: #f5f5f5; padding: .75em; margin: .5em 0 1em 0; }
+.vehicle-state    { text-transform: uppercase; text-align: center; display: block; background: #f5f5f5; padding: .75em; margin: .5em 0 1em 0; }
+.request-header { margin-bottom: 1em; }
 
 /* List */
 dl dt { text-transform: uppercase; font-weight: normal; color: black; text-align: center; margin-bottom: 1em; }
@@ -121,14 +126,31 @@ img            { width: 100%; }
 .primary-image { margin-bottom: .35em; }
 
 /* Form */
-form  { padding: 0 .75em; }
-form a { text-decoration: none; display: block; margin-bottom: .5em; }
-input { display: block; width: 100%; height: 4em; margin: 1em 0; padding: 1em; font-size: .5em; }
+form  		 { padding: 0 .75em; margin-top: .5em; }
+form a 		 { text-decoration: none; display: block; margin-bottom: .5em; }
+input,
+textarea 	 { border: 1px solid #e0e0e0; display: block; margin: 1em 0; padding: 1em; font-size: .5em; }
+textarea 	 { height: 15em; width: 100%; }
+
+input[type=text],
+input[type=password],
+input[type=email] 		{ width: 100%; }
+
+.submit 							{ text-transform: uppercase; font-size: .5em; font-weight: 100; color: white; background: #89181f; border: 0; padding: .75em; }
+p.instructions  			{ padding: 0; color: blue; }
+
+/* Table */
+table { font-size: .65em; display: flex; }
+tr {
+	display: flex; justify-content: space-between; margin-bottom: 1em; flex-direction: column;
+}
+
 
 @media all and (min-width: 736px) {
 
 	/* IDS */
 	#primary-wrapper  { width: 90%; margin: auto; padding: 1.5em 0; }
+	#brand						{ margin: 0; }
 	#menu 						{ flex: auto; }
 	.bg 							{ background: #f5f5f5; border-bottom: 1px solid rgba(204, 204, 204, 0.16); width: 100%; margin-bottom: 2.5em; }
 	#devise 				  { width: 50%; margin: auto; }
@@ -137,32 +159,35 @@ input { display: block; width: 100%; height: 4em; margin: 1em 0; padding: 1em; f
   #secondary-wrapper { display: flex; width: 90%; margin: auto; }
   .flex-header 			 { justify-content: flex-start; flex-direction: row; }
 	a.toggleNav 			 { display: none; }
+	.thumbnail-buttons { display: flex;  justify-content: space-between; }
 
   /* FLEX ITEMS */
   #primary-content,
   #dash-content              { flex-basis: 75%; margin-right: 1em; margin-top: 0; }
   #secondary-content,
   #dash-menu                 { flex-basis: 25%; }
+	.vehicle-card .state-card	 { flex-basis: 33.33333333%; font-size: 1em; }
 	.flex-header a:hover       { color: white; background: red; }
   .flex-nav ul 				       { display: flex; margin-right: .5em; justify-content: flex-end; }
   .filter 						       { flex-basis: 15%; min-width: 125px; margin-right: .5em; }
   .filter .flex-nav ul       { flex-direction: column; }
   .content 						       { flex-basis: 85%; display: flex; flex-wrap: wrap; }
   .content div 				       { flex-basis: 50%; padding: 0 .5em; margin-bottom: 1em; }
-  .thumbnail                 { flex-basis: 25%; padding: .5em;  }
-  .thumbnail:nth-child(3n+1) { padding-left: .5em; }
-  .thumbnail:nth-child(3n+3) { padding-right: .5em; }
-  .thumbnail:nth-child(4n+1) { padding-left: 0; }
-  .thumbnail:nth-child(4n+4) { padding-right: 0; }
+  .thumbnail                 { flex-basis: calc(25% - 1em); margin: .5em; display: flex; flex-direction: column; justify-content: space-between; }
+  .thumbnail:nth-child(3n+1) { margin-left: .5em; }
+  .thumbnail:nth-child(3n+3) { margin-right: .5em; }
+  .thumbnail:nth-child(4n+1) { margin-left: 0; }
+  .thumbnail:nth-child(4n+4) { margin-right: 0; }
 
   /* ANCHORS */
   .flex-header a 		{ margin-left: 1em; color: #89181f; text-transform: uppercase; font-size: .75em; padding: 0; border: 0; }
-  .filter a 				{ border-bottom: 0; }
-	.filter li a 			{ text-align: left; padding: .75em 0; text-transform: none; }
+  .filter a 				{ border-bottom: 0; font-size: .75em; padding: 0 0 1em 0; }
+	.filter li a 			{ text-align: left; text-transform: none; }
 	.content div h2 a { color: #337ab7; }
 	a.details 				{ font-size: .75em; background: #89181f; display: inline-block; padding: .5em; }
 
-  .edit             { display: inline-block; margin-bottom: 1em; }
+  .edit,
+	.more             { display: inline-block; margin-bottom: 1em; }
 
   /* H1-H6 */
   .flex-nav h1 		    { text-transform: uppercase; display: block; background: white; color: black; }
@@ -170,7 +195,9 @@ input { display: block; width: 100%; height: 4em; margin: 1em 0; padding: 1em; f
   .content div h2,
   #primary-content h2 { border: 2px solid red; background: white; padding: .5em; margin-bottom: 1em; color: #337ab7; }
   #dash-menu h2       { display: block; }
+	.dash-heading 			{ margin-bottom: .5em; }
   .specifications     { text-align: left; background: none; border-top: 2px black solid; color: black; padding: .5em 0; margin: 0 0 1em 0; }
+	.vehicle-state 			{ text-align: left; }
 
   /* List */
   dl dt,
@@ -180,8 +207,11 @@ input { display: block; width: 100%; height: 4em; margin: 1em 0; padding: 1em; f
 
   /* PARAGRAPHS */
   section div p { font-size: .75em; text-transform: uppercase; padding: 0; margin: 1em 0; color: #454545; }
+	#primary-content p,
+	#dash-content p    { padding: .25em 0; }
 
 	/* Form */
 	form  { padding: 0; }
+	.submit {  }
 
 }
