@@ -72,10 +72,17 @@ a.details 				{ text-decoration: none; text-transform: uppercase; text-align: ri
 .content div h2 a { text-decoration: none; color: white; }
 
 .edit 						{ background: #188934; }
-.more 						{ background: #89181f;; }
+.more 						{ background: #89181f; }
+.pending					{ background: #78909C; }
+.denied						{ background: red; }
+.waiting					{ background: #9E9E9E; }
+
+.waiting,
+.denied,
+.pending,
 .edit,
 .more             { text-decoration: none; text-transform: uppercase; color: white;
-                    display: block; padding: .25em .75em; margin-bottom: .5em; }
+                    text-align: center; display: block; padding: .25em .75em; margin-bottom: .5em; }
 
 .filter 					{ margin-bottom: .5em; }
 
@@ -86,12 +93,14 @@ a.details 				{ text-decoration: none; text-transform: uppercase; text-align: ri
 .toggleNav 	     { display: block; }
 .flex-nav ul     { display: none; }
 
-
 /* FLEX ITEMS */
-.vehicle-card .state-card 	 { flex-basis: 50%; font-size: .75em; padding: .25em; }
+.vehicle-card .state-card 	 	 { flex-basis: 50%; font-size: .75em; padding: .25em; }
 .thumbnail        						 { flex-basis: calc(33.333333% - .6em); margin: .3em; }
 .thumbnail:nth-child(3n+1) 		 { margin-left: 0; }
 .thumbnail:nth-child(3n+3) 		 { margin-right: 0; }
+
+.thumbnail-buttons .edit,
+.thumbnail-buttons .denied 		 { font-size: .65em; }
 
 .flex-nav.open ul { display: flex; flex-direction: column; }
 .flex-nav.open h1 { display: block; }
@@ -159,7 +168,7 @@ tr {
   #secondary-wrapper { display: flex; width: 90%; margin: auto; }
   .flex-header 			 { justify-content: flex-start; flex-direction: row; }
 	a.toggleNav 			 { display: none; }
-	.thumbnail-buttons { display: flex;  justify-content: space-between; }
+	.thumbnail-buttons { display: flex;  flex-direction: column; justify-content: space-between; }
 
   /* FLEX ITEMS */
   #primary-content,
@@ -186,8 +195,11 @@ tr {
 	.content div h2 a { color: #337ab7; }
 	a.details 				{ font-size: .75em; background: #89181f; display: inline-block; padding: .5em; }
 
+	.waiting,
+	.denied,
+	.pending,
   .edit,
-	.more             { display: inline-block; margin-bottom: 1em; }
+	.more             { font-size: .75em; display: inline-block; margin-bottom: 1em; }
 
   /* H1-H6 */
   .flex-nav h1 		    { text-transform: uppercase; display: block; background: white; color: black; }

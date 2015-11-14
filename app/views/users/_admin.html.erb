@@ -26,7 +26,7 @@
 
       <% @vehicles_pending.each do |vehicle| %>
         <div class="state-card">
-          <a class="edit"><%= vehicle.make %></a>
+          <a class="pending"><%= vehicle.make %></a>
         </div>
       <% end %>
     </div>
@@ -39,7 +39,7 @@
 
       <% @vehicles_denied.each do |vehicle| %>
         <div class="state-card">
-          <%= link_to vehicle.make, re_edit_vehicle_path(vehicle), class: "more" %>
+          <%= link_to vehicle.make, re_edit_vehicle_path(vehicle), class: "denied" %>
         </div>
       <% end %>
     </div>

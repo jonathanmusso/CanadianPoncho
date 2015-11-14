@@ -52,7 +52,7 @@
     <% if vehicle.primary_image %>
         <h3 class="dashboard-title">Primary Gallery Image</h3>
         <%= image_tag vehicle.primary_image.image %>
-        <p><%= link_to "Remove Image", vehicle_image_path(vehicle.primary_image), method: :delete, class: "item-more" %></p>
+        <p><%= link_to "Remove Image", vehicle_image_path(vehicle.primary_image), method: :delete, class: "denied" %></p>
         <p><strong>Please note:</strong> Clicking the above button will delete your photo from your profile. If you want
           to change your primary image, simply click the green button, "Make Primary".</p>
         <hr/>
@@ -64,8 +64,8 @@
         <div class="thumbnail">
           <%= image_tag img.image %>
           <div class="thumbnail-buttons">
-          <%= link_to "Remove Image", vehicle_image_path(img), method: :delete, class: "submit" %>
-          <%= link_to "Make Primary", vehicle_image_path(img), method: :patch, class: "submit" %>
+          <%= link_to "Remove Image", vehicle_image_path(img), method: :delete, class: "denied" %>
+          <%= link_to "Make Primary", vehicle_image_path(img), method: :patch, class: "edit" %>
           </div>
         </div>
         <% end %>
