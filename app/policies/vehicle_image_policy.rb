@@ -1,5 +1,9 @@
 class VehicleImagePolicy < ApplicationPolicy
+    def update?
+      user.present? && (record.vehicle.user == user || user.admin?)
+    end
+
     def destroy?
-        user.present? && (record.user == user || user.admin?)
+      user.present? && (record.vehicle.user == user || user.admin?)
     end
 end
