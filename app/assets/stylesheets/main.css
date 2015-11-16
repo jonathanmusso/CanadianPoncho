@@ -96,8 +96,8 @@ a.details 				{ text-decoration: none; text-transform: uppercase; text-align: ri
 /* FLEX ITEMS */
 .vehicle-card .state-card 	 	 { flex-basis: 50%; font-size: .75em; padding: .25em; }
 .thumbnail        						 { flex-basis: calc(33.333333% - .6em); margin: .3em; }
-.thumbnail:nth-child(3n+1) 		 { margin-left: 0; }
-.thumbnail:nth-child(3n+3) 		 { margin-right: 0; }
+.thumbnail:nth-child(3n+1) 		 { margin-left: 0; flex-basis: calc(33.333333% - .3em); }
+.thumbnail:nth-child(3n+3) 		 { margin-right: 0; flex-basis: calc(33.333333% - .3em); }
 
 .thumbnail-buttons .edit,
 .thumbnail-buttons .denied 		 { font-size: .65em; }
@@ -185,8 +185,8 @@ tr {
   .thumbnail                 { flex-basis: calc(25% - 1em); margin: .5em; display: flex; flex-direction: column; justify-content: space-between; }
   .thumbnail:nth-child(3n+1) { margin-left: .5em; }
   .thumbnail:nth-child(3n+3) { margin-right: .5em; }
-  .thumbnail:nth-child(4n+1) { margin-left: 0; }
-  .thumbnail:nth-child(4n+4) { margin-right: 0; }
+  .thumbnail:nth-child(4n+1) { margin-left: 0; flex-basis: calc(25% - .5em); }
+  .thumbnail:nth-child(4n+4) { margin-right: 0; flex-basis: calc(25% - .5em); }
 
   /* ANCHORS */
   .flex-header a 		{ margin-left: 1em; color: #89181f; text-transform: uppercase; font-size: .75em; padding: 0; border: 0; }
