@@ -60,6 +60,7 @@ hr                   { height: 0; border: 0; border-top: 1px solid #eeeeee; }
 #devise { margin-top: .5em; }
 
 /* ANCHORS */
+.toggleNav,
 .flex-header a,
 .filter a 				{ text-transform: uppercase; text-decoration: none; text-align: center; font-size: .75em;
                     color: #337ad1; border-bottom: 1px solid #e0e0e0; padding: .75em .25em; display: inline-block; width: 100%; }
@@ -167,7 +168,7 @@ tr {
   /* FLEX CONTAINERS */
   #secondary-wrapper { display: flex; width: 90%; margin: auto; }
   .flex-header 			 { justify-content: flex-start; flex-direction: row; }
-	a.toggleNav 			 { display: none; }
+	.toggleNav 			 { display: none; }
 	.thumbnail-buttons { display: flex;  flex-direction: column; justify-content: space-between; }
 
   /* FLEX ITEMS */
