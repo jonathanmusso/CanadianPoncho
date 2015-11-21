@@ -22,13 +22,12 @@
       <% end %>
 
         <%= f.label :password %>
-        <%= f.password_field :password, class: 'form-control', placeholder: "Enter password" %>
-        <i>(leave blank if you don't want to change it)</i>
-
+        <%= f.password_field :password, class: 'form-control', placeholder: "Enter new password" %>
         <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "Enter password confirmation" %>
 
-        <%= f.password_field :current_password, class: 'form-control', placeholder: "Enter password" %>
+        <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "Confirm new password" %>
+<i>(leave blank if you don't want to change it)</i>
+        <%= f.password_field :current_password, class: 'form-control', placeholder: "Enter existing password" %>
         <i>(we need your current password to confirm your changes)</i>
 
         <%= f.submit "Update", class: 'submit' %>
