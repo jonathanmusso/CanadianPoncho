@@ -134,11 +134,10 @@ dl dd 		 { margin-bottom: 1em; text-align: center; }
 
 /* PARAGRAPHS */
 p 								 { color: gray; line-height: 1.35em; }
-
-#primary-content p,
-#dash-content p    { padding: .25em .75em; }
 section div p      { font-size: .75em; text-transform: uppercase; padding: .75em .25em; }
 footer p 			     { font-size: .75em;}
+
+.mobile						 { padding: .25em .75em; }
 
 /* IMAGES */
 img            { width: 100%; }
