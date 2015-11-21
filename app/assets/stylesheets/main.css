@@ -223,7 +223,7 @@ tr {
   .content div h2,
   #primary-content h2 { border: 2px solid red; background: white; padding: .5em; margin-bottom: 1em; color: #337ab7; }
   #dash-menu h2       { display: block; }
-	.dash-heading 			{ margin-bottom: .5em; }
+	.dash-heading 			{ margin-bottom: 1em; }
   .specifications     { text-align: left; background: none; border-top: 2px black solid; color: black; padding: .5em 0; margin: 0 0 1em 0; }
 	.vehicle-state 			{ text-align: left; }
 
