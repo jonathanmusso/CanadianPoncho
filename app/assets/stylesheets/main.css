@@ -65,6 +65,8 @@ hr                   { height: 0; border: 0; border-top: 1px solid #eeeeee; }
 .filter a 				{ text-transform: uppercase; text-decoration: none; text-align: center; font-size: .75em;
                     color: #337ad1; border-bottom: 1px solid #e0e0e0; padding: .75em .25em; display: inline-block; width: 100%; }
 
+.flex-header a		{ transition: color 1s ease; }
+
 .filter a					{ transition: color 1s ease; }
 .filter a:hover   { color: red; }
 
@@ -202,7 +204,7 @@ tr {
   #secondary-content,
   #dash-menu                 { flex-basis: 25%; }
 	.vehicle-card .state-card	 { flex-basis: 33.33333333%; font-size: 1em; }
-	.flex-header a:hover       { color: white; background: red; }
+	.flex-header a:hover       { color: #337ad1; }
   .flex-nav ul 				       { display: flex; margin-right: .5em; justify-content: flex-end; }
   .filter 						       { flex-basis: 15%; min-width: 125px; margin-right: .5em; }
   .filter .flex-nav ul       { flex-direction: column; }
