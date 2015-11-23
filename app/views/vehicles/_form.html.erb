@@ -74,7 +74,7 @@
 
     <%= f.fields_for :vehicle_images do |p| %>
           <%= p.label :images %>
-          <p>Please upload images of the same size.</p>
+          <p>Please upload images of the same dimensions.</p>
           <p>To add multiple files please hold shift + click or ctrl + click.</p>
           <%= p.file_field :image, :multiple => true, name: "vehicle[vehicle_images][image][]" %>
     <% end %>
