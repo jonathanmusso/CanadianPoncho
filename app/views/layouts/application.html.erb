@@ -48,20 +48,20 @@
     </div>
 
     <% if flash[:notice] %>
-     <div>
-       <button type="button" class="close" data-dismiss="alert">&times;</button>
+     <span class="flash">
        <%= flash[:notice] %>
-     </div>
+       <span>Please click to close this window.</span>
+     </span>
     <% elsif flash[:error] %>
-     <div>
-       <button type="button" class="close" data-dismiss="alert">&times;</button>
+     <span class="flash">
        <%= flash[:error] %>
-     </div>
+       <span>Please click to close this window.</span>
+     </span>
     <% elsif flash[:alert] %>
-     <div>
-       <button type="button" class="close" data-dismiss="alert">&times;</button>
+     <span class="flash">
        <%= flash[:alert] %>
-     </div>
+       <span>Please click to close this window.</span>
+     </span>
     <% end %>
 
     <%= yield %>
