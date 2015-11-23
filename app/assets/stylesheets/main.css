@@ -65,6 +65,9 @@ hr                   { height: 0; border: 0; border-top: 1px solid #eeeeee; }
 .filter a 				{ text-transform: uppercase; text-decoration: none; text-align: center; font-size: .75em;
                     color: #337ad1; border-bottom: 1px solid #e0e0e0; padding: .75em .25em; display: inline-block; width: 100%; }
 
+.filter a					{ transition: color 1s ease; }
+.filter a:hover   { color: red; }
+
 .flex-header a 		{ border-bottom: 1px solid #ccc; }
 .flex-nav.open a  { background: white; }
 a.details,
@@ -80,13 +83,13 @@ a.details,
 .denied						{ background: red; }
 .waiting					{ background: #9E9E9E; }
 
-.details:hover					{ background: red; }
-.sort:hover							{ background: gray; }
-.edit:hover 						{ background: #8BC34A; }
-.more:hover 						{ background: #EEEEEE; }
-.pending:hover					{ background: #CFD8DC; }
-.denied:hover						{ background: #EF9A9A; }
-.waiting:hover					{ background: #E0E0E0; }
+.details:hover		{ background: red; }
+.sort:hover				{ background: gray; }
+.edit:hover 			{ background: #8BC34A; }
+.more:hover 			{ background: #EEEEEE; }
+.pending:hover		{ background: #CFD8DC; }
+.denied:hover			{ background: #EF9A9A; }
+.waiting:hover		{ background: #E0E0E0; }
 
 .waiting,
 .denied,
