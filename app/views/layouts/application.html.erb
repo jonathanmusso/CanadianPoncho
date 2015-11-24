@@ -18,7 +18,7 @@
         <header class="flex-header">
           <%= image_tag("cp_brand_01.svg", id: "brand") %>
           <h1>Canadian Poncho</h1>
-          <span class="toggleNav" data-target-id="menu">☰ Menu</span>
+          <span class="toggleNav" data-target-id="menu" onclick="toggleNavMenu(event)">☰ Menu</span>
           <nav id="menu" class="flex-nav">
             <ul>
               <li><%= link_to "Registry", root_path, class: nav_active(root_path) %></li>
@@ -72,14 +72,6 @@
     </footer>
 
   </div>
-
-  <%= javascript_tag do %>
-    $(function() {
-      $('.toggleNav').on('click',function(e) {
-        $("#" +$(e.target).data('target-id')).toggleClass('open');
-      });
-    });
-  <% end %>
-
+  
 </body>
 </html>
