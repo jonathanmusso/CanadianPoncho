@@ -34,7 +34,7 @@
       <div>
         <h2><%= link_to "#{vehicle.make} #{vehicle.model}", vehicle %></h2>
           <%= image_tag(vehicle.primary_image.image, class: "img-responsive") if vehicle.primary_image %>
-          <p><%= vehicle.user.name %>'s <%= vehicle.year %> <%= vehicle.make %> <%= vehicle.model %></p>
+          <p><%= vehicle.user.username %>'s <%= vehicle.year %> <%= vehicle.make %> <%= vehicle.model %></p>
           <%= link_to "View Details", vehicle, class: "details" %>
       </div>
     <% end %>
