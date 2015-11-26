@@ -1,6 +1,6 @@
 <div id="secondary-wrapper">
   <div id="primary-content">
-    <h2><%= vehicle.user.name %>'s <%= vehicle.year %> <%= vehicle.make %></h2>
+    <h2><%= vehicle.user.username %>'s <%= vehicle.year %> <%= vehicle.make %></h2>
 
     <% if policy(vehicle).edit? %>
         <%= link_to "Edit", edit_vehicle_path(vehicle), class: 'edit' %>
