@@ -29,6 +29,7 @@ class VehiclesController < ApplicationController
             flash[:notice] = 'The Vehicle was sent to the Administrator for approval. You will be notified in your Dashboard if your vehicle was approved or denied.'
             redirect_to current_user
         else
+            set_s3_direct_post
             flash[:error] = 'There was an error saving the Vehicle to the Registry. Please try again.'
             render :new
         end
