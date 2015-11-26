@@ -46,7 +46,7 @@ function directUploadInit() {
 			fail: function (e, data) {
 				progressBar.
 					css("background", "red").
-					text("Failed");
+					text("Failed, please retry.");
 			}
 		});
 	});
