@@ -12,9 +12,7 @@
 
     <div id="flex-thumbnails">
       <% vehicle.vehicle_images.each do |img| %>
-          <div class="thumbnail">
-            <%= image_tag img.image, class: "secondary-image" %>
-          </div>
+            <%= image_tag img.image, class: "secondary-image thumbnail" %>
       <% end %>
     </div>
 
@@ -54,12 +52,12 @@
 <%= javascript_tag do %>
     $(document).ready(function(){
     var primaryImage = $(".primary-image");
-    $(".thumbnail:first").addClass("active-thumbnail");
+    $(".thumbnail:first").addClass("active-secondary");
 
     $(".thumbnail").click(function(e) {
-    $(".thumbnail").removeClass("active-thumbnail");
+    $(".thumbnail").removeClass("active-secondary");
     $(this).addClass("active-thumbnail");
-    primaryImage.attr("src", $(e.target).find('.secondary-image').attr("src"));
+    primaryImage.attr("src", $(e.target).attr("src"));
     });
     });
 <% end %>

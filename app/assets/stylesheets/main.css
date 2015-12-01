@@ -117,7 +117,7 @@ a.details,
 
 /* FLEX ITEMS */
 .vehicle-card .state-card 	 	 { flex-basis: 50%; font-size: .75em; padding: .25em; }
-.thumbnail        						 { flex-basis: calc(33.333333% - .6em); margin: .3em; position: relative; overflow: hidden; cursor: pointer; }
+.thumbnail        						 { flex-basis: calc(33.333333% - .6em); margin: .3em; }
 .thumbnail:hover 							 { -webkit-box-shadow: inset 0px 0px 0px 5px rgba(0,0,0,0.4); -moz-box-shadow: inset 0px 0px 0px 5px rgba(0,0,0,0.4); box-shadow: inset 0px 0px 0px 5px rgba(0,0,0,0.4); }
 .thumbnail:nth-child(3n+1) 		 { margin-left: 0; flex-basis: calc(33.333333% - .3em); }
 .thumbnail:nth-child(3n+3) 		 { margin-right: 0; flex-basis: calc(33.333333% - .3em); }
@@ -160,7 +160,7 @@ footer p 			     { font-size: .75em;}
 /* IMAGES */
 img            { width: 100%; }
 .primary-image { margin-bottom: .35em; }
-.secondary-image { position: absolute; top: 0; bottom: 0; right: 0; left: 0; margin: auto; height: auto; width: 100%; z-index: -1; }
+.secondary-image {  }
 .active-thumbnail .secondary-image { opacity: .5; }
 
 /* Form */
