@@ -59,15 +59,13 @@
     <% end %>
 
     <% if vehicle.vehicle_images.length > 0 %>
-      <div id="flex-thumbnails">
+      <div id="thumbbox">
         <% vehicle.vehicle_images.each do |img| %>
-        <div class="thumbnail">
-          <%= image_tag img.image %>
-          <div class="thumbnail-buttons">
-          <%= link_to "Remove Image", vehicle_image_path(img), method: :delete, class: "denied" %>
-          <%= link_to "Make Primary", vehicle_image_path(img), method: :patch, class: "edit" %>
+          <div class="thumb">
+            <%= image_tag img.image %>
+            <%= link_to "Remove Image", vehicle_image_path(img), method: :delete, class: "denied" %>
+            <%= link_to "Make Primary", vehicle_image_path(img), method: :patch, class: "edit" %>
           </div>
-        </div>
         <% end %>
       </div>
     <% end %>

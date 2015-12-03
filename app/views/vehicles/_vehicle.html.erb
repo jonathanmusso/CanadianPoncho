@@ -10,9 +10,11 @@
         <%= image_tag vehicle.primary_image.image, class: "primary-image" %>
     <% end %>
 
-    <div id="flex-thumbnails">
+    <div id="thumbbox">
       <% vehicle.vehicle_images.each do |img| %>
+        <div class="thumb">
             <%= image_tag img.image, class: "secondary-image thumbnail" %>
+        </div>
       <% end %>
     </div>
 
