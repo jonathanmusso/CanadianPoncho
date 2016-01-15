@@ -1,6 +1,6 @@
 <div id="secondary-wrapper">
   <div id="primary-content">
-    <h2><%= vehicle.user.username %>'s <%= vehicle.year %> <%= vehicle.make %></h2>
+    <h2><%= vehicle.year %> <%= vehicle.make %></h2>
 
     <% if policy(vehicle).edit? %>
         <%= link_to "Edit", edit_vehicle_path(vehicle), class: 'edit' %>
@@ -26,7 +26,7 @@
   <div id="secondary-content">
     <h2 class="specifications">Specifications</h2>
     <dl>
-      <dt>Owner:</dt>
+      <dt>Submitted by:</dt>
       <dd><%= vehicle.user.username %></dd>
       <dt>Make:</dt>
       <dd><%= vehicle.make %></dd>
