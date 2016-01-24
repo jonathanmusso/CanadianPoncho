@@ -1,0 +1,7 @@
+$('#vehicles').append('<%= j render @vehicles %>');
+<% if @vehicles.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate @vehicles %>');
+<% else %>
+  $(window).off('scroll');
+  $('.pagination').remove();
+<% end %>

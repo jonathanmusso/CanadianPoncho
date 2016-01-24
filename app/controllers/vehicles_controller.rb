@@ -5,11 +5,16 @@ class VehiclesController < ApplicationController
     before_action :set_s3_direct_post, only: [:new, :edit, :update, :re_edit]
 
     def index
-        scope = Vehicle.approved
-        scope = scope.filter_by_make(params[:makes]) if params[:makes].present?
-        scope = scope.filter_by_year(params[:years]) if params[:years].present?
+      scope = Vehicle.approved
+      scope = scope.filter_by_make(params[:makes]) if params[:makes].present?
+      scope = scope.filter_by_year(params[:years]) if params[:years].present?
 
-        @vehicles = scope
+      @vehicles = scope.paginate(page: params[:page]).order('created_at DESC')
+
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
 
     def show
