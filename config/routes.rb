@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :vehicles do
     collection do
-      post 'filter' => 'vehicles#index'
+      get 'filter' => 'vehicles#index'
     end
     member do
       get 're_edit' => 'vehicles#re_edit'

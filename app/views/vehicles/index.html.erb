@@ -3,7 +3,7 @@
     <span class="toggleNav" data-target-id="filter" onclick="toggleNavMenu(event)"><i class="fa fa-check-square-o"></i> Vehicle Filter</span>
 
     <nav id="filter" class="flex-nav">
-      <%= form_tag filter_vehicles_path do |f| %>
+      <%= form_tag filter_vehicles_path, method: :get do |f| %>
           <h1>Make: </h1>
           <ul>
             <% Vehicle.makes.each do |make| %>
@@ -29,8 +29,7 @@
     </nav>
   </section>
 
-  <div id="vehicles">
-    <section class="content">
+    <section id="vehicles" class="content">
       <% @vehicles.each do |vehicle| %>
         <div>
           <h2><%= link_to "#{vehicle.make} #{vehicle.model}", vehicle %></h2>
@@ -40,9 +39,9 @@
         </div>
       <% end %>
     </section>
-  </div>
 
-  <div id="infinite-scrolling">
-    <%= will_paginate @vehicles %>
-  </div>
+</div>
+
+<div id="pagination">
+  <%= will_paginate @vehicles %>
 </div>

@@ -51,8 +51,15 @@ table {
 html 	 							 { box-sizing: border-box; }
 *, *:before, *:after { box-sizing: inherit; }
 body 								 { font-family: 'Source Sans Pro', sans-serif; font-size: 1.5em; font-weight: 100; margin: 0; }
-footer 							 { padding: .75em .5em; }
+footer,
+#pagination   			 { padding: .75em .5em; }
 hr                   { height: 0; border: 0; border-top: 1px solid #eeeeee; }
+
+/* Pagination */
+.previous_page,
+.next_page 		{ background: #f9f9f9; padding: .25em; }
+a.next_page:hover,
+a.previous_page:hover 	{ background: black; color: white; }
 
 /* IDS */
 #brand { width: 55px; height: 75px; margin: 1em auto; }
@@ -206,7 +213,10 @@ tr {
 
 @media all and (min-width: 736px) {
 
-	footer 							 { padding: .75em 5%; }
+	footer,
+	#pagination 							 { padding: .75em 5%; }
+
+	#pagination				{ text-align: right; }
 
 	/* IDS */
 	#primary-wrapper  { width: 90%; margin: auto; padding: 1.5em 0; }
